@@ -2,6 +2,8 @@
 
 
 Hi there:D
+
+First of all u must to clone or download this repository.
 I haven't experiance with webpack or vue cli or something in this way (ready to learn, by the way:D), 
 so i've been using Gulp. And following from this u must have node.js (https://nodejs.org/en) at your computer.
 Gulp should be installed globally. 
