@@ -643,7 +643,7 @@ th {
           box-sizing: border-box; }
 
 html, body {
-  font-family: 'GothamPro'; }
+  font-family: 'GothamPro', sans-serif; }
 
 a {
   text-decoration: none; }
