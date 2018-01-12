@@ -7,7 +7,10 @@ combiner     = require('stream-combiner2').obj,
 pngquant     = require('imagemin-pngquant'),
 iconfont     = require('gulp-iconfont'),
 consolidate  = require('gulp-consolidate'),
-svgmin       = require('gulp-svgmin');
+svgstore     = require('gulp-svgstore'),
+rename       = require('gulp-rename'),
+svgmin       = require('gulp-svgmin'),
+inject       = require('gulp-inject');
 
 gulp.task("build:icons", function() {
     return gulp.src(["./assets/icons/*.svg"]) //path to svg icons
@@ -17,8 +20,8 @@ gulp.task("build:icons", function() {
       centerHorizontally: true,
       fixedWidth: true,
       normalize: true,
-      fontHeight: 500
-      }))
+      fontHeight: 1500
+    }))
     .on("glyphs", (glyphs) => {
 
         gulp.src("./assets/icons/util/*.scss") // Template for scss files
@@ -26,11 +29,32 @@ gulp.task("build:icons", function() {
           glyphs: glyphs,
           fontName: "myicons",
           fontPath: "../fonts/"
-          }))
+        }))
             .pipe(gulp.dest("./assets/scss/icons/")); // generated scss files with classes
-            })
+          })
       .pipe(gulp.dest("./dist/fonts/")); //icon font destination
-      });
+    });
+
+gulp.task('svgstore', function () {
+
+ var svgs = gulp
+
+ .src('assets/img/*.svg')
+ .pipe(rename({prefix: 'svg-'}))
+ .pipe(svgmin())
+ .pipe(svgstore({ inlineSvg: true }));
+
+ function fileContents (filePath, file) {
+   return file.contents.toString();
+ }
+
+ return gulp
+ 
+ .src('./index.html')
+ .pipe(inject(svgs, { transform: fileContents }))
+ .pipe(gulp.dest('./'));
+
+});
 
 gulp.task('img', function() {
   return combiner(
@@ -40,10 +64,10 @@ gulp.task('img', function() {
      progressice: true,
      svgoPlugins: [{removeViewBox: false}],
      une: [pngquant()]
-     }),
+   }),
     gulp.dest('./dist/img')
     ).on('error', $.notify.onError());
-  });
+});
 
 gulp.task('sass', function () {
  return combiner(
@@ -52,13 +76,13 @@ gulp.task('sass', function () {
   $.sass({
     output_style: 'compressed',
     includePaths: ['node_modules/foundation-sites/scss']
-    }),
+  }),
   postcss([ autoprefixer({ browsers: ['last 3 version'] }) ]),
   $.sourcemaps.write('.'),
   gulp.dest('./dist/css'),
   browser.stream({match: '**/*.css'})
   ).on('error', $.notify.onError());
- });
+});
 
 // Starts a BrowerSync instance
 gulp.task('serve', ['sass'], function(){
@@ -66,13 +90,13 @@ gulp.task('serve', ['sass'], function(){
     server: {
       baseDir: "./"
     }
-    });
   });
+});
 
 
 // Runs all of the above tasks and then waits for files to change
 gulp.task('default', ['serve'], function() {
   gulp.watch(['assets/scss/**/*.scss'], ['sass']);
   gulp.watch('./**/*.html').on('change', browser.reload);
-  gulp.watch('assets/libs/common.js').on('change', browser.reload);
-  });
+  gulp.watch('dist/libs/common.js').on('change', browser.reload);
+});

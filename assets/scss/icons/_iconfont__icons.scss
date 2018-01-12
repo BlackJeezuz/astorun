@@ -18,9 +18,9 @@ $global-font-icon: 'social';
     /* Some common icon stuff */
   }
 
-  &.icon--search {
+  &.icon--forw {
     &:before {
-      content: $icon-search;
+      content: $icon-forw;
     }
   }
 
