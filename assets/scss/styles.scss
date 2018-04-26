@@ -34,12 +34,12 @@
 
 	&__tab {
 		display: flex;
-		align-items: flex-start;
-		max-width: 34rem;
-		
+
 		&-btn {
+			max-width: 20rem;
 			padding: 1rem 0rem 1rem 1.5rem;
 			font-size: 14px;
+			word-wrap: break-word;
 			font-weight: bold;
 			line-height: 1.286;
 			background-color: transparent;
@@ -71,7 +71,7 @@
 			}
 
 			&--sm {
-				max-width: 14rem;
+				max-width: 12rem;
 			}
 		}
 	}

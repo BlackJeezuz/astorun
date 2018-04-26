@@ -499,14 +499,12 @@ fieldset {
   .ordering__tab {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    max-width: 34rem; }
+    display: flex; }
     .ordering__tab-btn {
+      max-width: 20rem;
       padding: 1rem 0rem 1rem 1.5rem;
       font-size: 14px;
+      word-wrap: break-word;
       font-weight: bold;
       line-height: 1.286;
       background-color: transparent;
@@ -526,7 +524,7 @@ fieldset {
       .ordering__tab-btn:focus {
         outline: none; }
       .ordering__tab-btn--sm {
-        max-width: 14rem; }
+        max-width: 12rem; }
 
 .f-order__title--inline, .f-order__label {
   width: 15rem; }
