@@ -1,78 +1,152 @@
-$(function() {
-	
-	(function($) {
-		$.fn.tabs = function(options) {
-			var settings = $.extend({
-				'duration' : 300,
-				'animated' : true
-			}, options);
+"use strict";
 
-			var allContent = $('[data-content]');
+window.onload = function() {
 
-			this.each(function(index) {
-				var dataTab = $(this).data('tab');
-				var content = $('[data-content='+ dataTab +']');
+	const mes = document.querySelector('.chat__messages');
+	const form = document.querySelector('.send');
+	const input = document.querySelector('.send__input');
+	const contacts = document.querySelectorAll('.contact');
+	const menu = document.querySelector('.btn-menu');
+	const searchInp = document.querySelector('.search__input');
 
-				$(this).on('click', function(e) {
+	let options = {
+		avatar: "dist/img/cageholder_4.jpg",
+		type: "sended",
+		chat: mes
+	}
 
-					if(content.hasClass('is-active')) return;
-					
-					if(settings.animated) {
-						allContent.stop(true).animate({
-							'opacity' : 0
-						}, settings.duration , function() {
-							$(this).removeClass('is-active')
+	function Chat() {};
 
-							content.addClass('is-active')
-							.stop(true)
-							.animate({
-								'opacity': 1
-							}, settings.duration)
-						})
-					} else {
-						allContent.removeClass('is-active');
-						content.addClass('is-active');
-					}
-				});
+	Chat.prototype = options;
+	Chat.prototype.constructor = Chat;
+	Chat.prototype.sendMessage = function(text) {
+		this.chat.innerHTML += 
+		`<div class="message message--${this.type}">
+		<img src="${this.avatar}" alt="person" class="message__img">
+		<p class="message__text">${text}</p>
+		</div>`
+	}
 
-			});
+	let firstContactImg = document.querySelectorAll('.contact')[0]
+																.querySelector('img').src;
 
-			
-			return this;
+	function Bot() {
+		this.avatar = firstContactImg,
+		this.type = "received"
+	}
+
+	Bot.prototype = Object.create(options);
+	Bot.prototype.constructor = Bot;
+	Bot.prototype.setAvatar = function(ava) {
+		this.avatar = ava;
+	}
+	Bot.prototype.getPhrase = function(url, callback = function(){}) {
+		let request = new XMLHttpRequest();
+
+		request.onreadystatechange = function() {
+			if (request.readyState == 4 && request.status == 200) {
+				callback(request.responseText);	
+			}
 		}
-	})(jQuery);
+		request.open('GET', url);
+		request.send();
+	}
 
-	$('.ordering__tab-btn').tabs({animated: false});
+	function search(contactNames) {
+		let input = this.value.toLowerCase();		
 
-	$('.ordering__tab-btn').on('click', function() {
-		$('.ordering__tab-btn').removeClass('is-active');
+		for(let i = 0; i < contactNames.length; i++){
+			let str = contactNames[i].textContent.toLowerCase();
 
-		$(this).addClass('is-active');
-	})
+			if (str.includes(input) && input || !input) {
+				contactNames[i].parentElement.style.display = "flex";
+			} else {
+				contactNames[i].parentElement.style.display = "none";
+			}
+		}
+	}
 
-	$('#addComent').on('click', function(e) {
+	function getRandKey(obj) {
+		let keys = Object.keys(obj);
+		let randKey = Math.floor( Math.random()*(keys.length)+0);
+
+		return obj[keys[randKey]];
+	}
+
+	let bot = new Bot();
+	let chat = new Chat();
+
+	form.addEventListener('submit', function(e) {
 		e.preventDefault();
 
-		var prevEl = $(this).prev();
+		if (!input.value) return;
 
-		if(prevEl[0].tagName === 'TEXTAREA'
-			&& prevEl.is(':visible')) {
-			alert("Don't do it again");
-			return;
+		chat.sendMessage(input.value);
+
+		bot.getPhrase('json/phrases.json', function(data) {
+			let json = JSON.parse(data);
+			let phrase = getRandKey(json);
+
+			setTimeout(function() {
+				bot.sendMessage(phrase);
+				mes.scrollTo(0, mes.scrollHeight);
+			}, 500);
+		});
+
+		input.value = '';
+	});
+
+	/*Create obj with users message history*/
+
+	let users = {};
+
+	for(let i = 0; i < contacts.length; i++) {
+
+		/*Create user name fields with current messages in users obj*/
+
+		users[contacts[i].querySelector('.contact__name').innerHTML] = {
+			history: ""
 		}
 
-		var textArea = $('<textarea>');
-		textArea.addClass('f-order__textarea');
+		contacts[i].addEventListener('click', function(e) {
+			if (this.classList.contains('is-active')) return;
 
-		$(this).before(textArea);
-		textArea.css('display', 'none').fadeIn();
-		textArea.focus();
+			let currentUser = document.querySelector('.contact.is-active')
+															  .querySelector('.contact__name').innerHTML;
 
-		textArea.on('blur', function(e) {
-			if(!this.value) {
-				$(this).fadeOut();
+			let activeUser = this.querySelector('.contact__name').innerHTML;
+
+			/*Saving current messages in users history*/
+
+			users[currentUser].history = mes.innerHTML;
+
+			for(let i = 0; i < contacts.length; i++) {
+				contacts[i].classList.remove('is-active');
 			}
 
-		})
-	})
-});
+			this.classList.add('is-active');
+			let src = this.querySelector('img').src;
+
+			bot.setAvatar(src);
+
+			/*Recovering user messages form user history*/
+
+			mes.innerHTML = users[activeUser].history;
+			mes.scrollTo(0, mes.scrollHeight);
+			
+			menu.classList.remove('is-active');
+		});
+
+	}
+
+	menu.addEventListener('click', function(e) {
+		this.classList.toggle('is-active');
+	});
+
+	const contactNames = document.querySelectorAll('.contact__name');
+
+	searchInp.addEventListener('input', function() {
+		search.call(this, contactNames);
+	});
+};
+

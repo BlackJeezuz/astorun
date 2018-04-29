@@ -25,7 +25,7 @@
 	transform: translateX(-50%);
 }
 
-@function pxtopercent($target, $parent: 1230) {
+@function pxtopercent($target, $parent: 1170) {
 	@return percentage($target / $parent);
 }
 

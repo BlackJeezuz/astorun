@@ -15,6 +15,7 @@ inject       		 = require('gulp-inject'),
 notify					 = require('gulp-notify'),
 plumber 				 = require("gulp-plumber"),
 pug  						 = require('gulp-pug'),
+sourcemaps       = require('gulp-sourcemaps'),
 pugBEMify 			 = require('pug-bemify');
 
 /*#Build plugins*/
@@ -22,7 +23,8 @@ var csso = require('gulp-csso'),
 useref 	 = require('gulp-useref'),
 concat 	 = require('gulp-concat'),
 gulpif   = require('gulp-if'),
-uglify 	 = require('gulp-uglify');
+uglify 	 = require('gulp-uglify'),
+babel = require('gulp-babel');
 
 var svgWatch            = './dist/img/svgstore/icons/*.svg';
 var svgIconsSource      = './sprite.svg';
@@ -45,7 +47,7 @@ gulp.task('svgstore', function () {
 	.pipe(gulp.dest(svgIconsDestination));
 });
 
-gulp.task('pug', function() {
+/*gulp.task('pug', function() {
 	return gulp.src('pug/*.pug')
 	.pipe(plumber())
 	.pipe(pug({
@@ -56,7 +58,7 @@ gulp.task('pug', function() {
 		return "Message to the notifier: " + error.message;
 	}))
 	.pipe(gulp.dest('./'));
-});
+});*/
 
 gulp.task("build:icons", function() {
     return gulp.src(["./assets/icons/*.svg"]) //path to svg icons
@@ -108,6 +110,7 @@ gulp.task('sass', function () {
 		).on('error', $.notify.onError());
 });
 
+
 // Starts a BrowerSync instance
 gulp.task('serve', ['sass'], function(){
 	browser.init({
@@ -133,12 +136,16 @@ gulp.task('build:js', function() {
 	return gulp.src([
 		'dist/libs/*.js' 
 		])
+	.pipe(sourcemaps.init())
+	.pipe(babel({
+		presets: ['es2015']
+	}))
 	.pipe(concat('libs.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('build', [ 'img', 'build:css', 'build:js']);
+gulp.task('build', ['img', 'build:css', 'build:js']);
 
 // Runs all of the above tasks and then waits for files to change
 gulp.task('default', ['serve'], function() {
