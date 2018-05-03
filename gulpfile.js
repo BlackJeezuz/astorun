@@ -16,7 +16,10 @@ notify					 = require('gulp-notify'),
 plumber 				 = require("gulp-plumber"),
 pug  						 = require('gulp-pug'),
 sourcemaps       = require('gulp-sourcemaps'),
-pugBEMify 			 = require('pug-bemify');
+pugBEMify 			 = require('pug-bemify'),
+browserify       = require('browserify'),
+watchify         = require('watchify'),
+source           = require('vinyl-source-stream');
 
 /*#Build plugins*/
 var csso = require('gulp-csso'),
@@ -147,8 +150,32 @@ gulp.task('build:js', function() {
 
 gulp.task('build', ['img', 'build:css', 'build:js']);
 
+var sourceFile = './assets/common.js',
+destFolder = './dist/libs/',
+destFile = 'app.js';
+
+gulp.task('browserify', function() {
+
+	var b = browserify({
+		entries: ['./assets/common.js'],
+		cache: {},
+		packageCache: {},
+		plugin: [watchify]
+	});
+
+	b.on('update', rebundle);
+
+	function rebundle() {
+		return b.bundle()
+		.pipe(source(destFile))
+		.pipe(gulp.dest(destFolder));
+	}
+
+	return rebundle();
+});
+
 // Runs all of the above tasks and then waits for files to change
-gulp.task('default', ['serve'], function() {
+gulp.task('default', ['browserify', 'serve'], function() {
 	//gulp.watch('pug/**/*.pug', ['pug']);
 	gulp.watch(['assets/scss/**/*.scss'], ['sass']);
 	gulp.watch('./**/*.html').on('change', browser.reload);

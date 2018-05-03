@@ -1,7 +1,7 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 
 window.onload = function() {
-
 	const chatWindow = document.querySelector('.chat__messages');
 	const form = document.querySelector('.send');
 	const input = document.querySelector('.send__input');
@@ -40,14 +40,28 @@ window.onload = function() {
 	Bot.prototype.setAvatar = function(ava) {
 		this.avatar = ava;
 	}
+
 	Bot.prototype.getPhrase = function(url, callback = function() {}) {
 		let request = new XMLHttpRequest();
 
 		request.onreadystatechange = function() {
-			if (request.readyState == 4 && request.status == 200) {
-				callback(request.responseText);
+			if (request.readyState == 4) {
+
+				if( request.status == 200 ) {
+					callback(request.responseText);
+				} else if( request.status >= 500 ) {
+					popup.open('<h2>Server error</h2><p>Try to use our service later, please!</p>');
+				} else if(request.status == 401 ) {
+					popup.open('<h2>Error 401</h2><p>Autoriztion error. Please, Log in to the site and try again</p>');
+				} else if (request.status == 400) {
+					popup.open('<h2>Error 400</h2><p>Bad request. Syntax error</p>');
+				} else {
+					popup.open(`<h2>Request status: ${request.status}</h2><p>Bad request. Syntax error</p>`);
+				}
+
 			}
-		}
+
+		};
 		request.open('GET', url);
 		request.send();
 	}
@@ -83,12 +97,18 @@ window.onload = function() {
 
 		chat.sendMessage(input.value);
 
-		bot.getPhrase('json/phrases.json', function(data) {
-			let json = JSON.parse(data);
-			let phrase = getRandKey(json);
-
+		bot.getPhrase('https://talaikis.com/api/quotes/random/', function(data) {
+			try {
+				var json = JSON.parse(data);
+			} catch(e) {
+				popup.open(`<h2>Syntax error</h2><p>Text us and we will solve it!</p>`);
+			}
 			setTimeout(function() {
-				bot.sendMessage(phrase);
+				if (json.quote == undefined) {
+					popup.open(`<h2>Syntax error</h2><p>Quote is not defined</p>`);
+					throw new Error('json.quote is not defined')
+				}
+				bot.sendMessage(json.quote);
 				chatWindow.scrollTo(0, chatWindow.scrollHeight);
 			}, 500);
 		});
@@ -148,4 +168,47 @@ window.onload = function() {
 	searchInp.addEventListener('input', function() {
 		search.call(this, contactNames);
 	});
+
+
+	var popup = new Popup();
+
+	popup._elems.overlay.addEventListener('click', function(e) {
+		popup.close();
+	});
+
+	popup._elems.closeBtn.addEventListener('click', function(e) {
+		popup.close();
+	});
 };
+
+
+function Popup() {
+	this._elems = {
+		body: document.querySelector('body'),
+		overlay: document.createElement('div'),
+		closeBtn: document.createElement('span'),
+		window: document.createElement('div'),
+		content: document.createElement('div')
+	}
+
+	this._elems.content.classList.add('popup__content');
+	this._elems.overlay.classList.add('overlay');
+	this._elems.closeBtn.className = 'popup__close';
+	this._elems.window.classList.add('popup');
+
+	this._elems.body.appendChild(this._elems.overlay);
+	this._elems.overlay.appendChild(this._elems.window);
+	this._elems.window.appendChild(this._elems.closeBtn);
+	this._elems.window.appendChild(this._elems.content);
+
+}
+
+Popup.prototype.open = function(content) {
+	this._elems.content.innerHTML = content;
+	this._elems.overlay.classList.add('is-active');
+}
+
+Popup.prototype.close = function(content) {
+	this._elems.overlay.classList.remove('is-active');
+}
+},{}]},{},[1]);
