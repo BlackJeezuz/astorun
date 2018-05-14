@@ -1,17 +1,10 @@
-%inp {
-	border-radius: 5px;
-	border: 1px solid #ccc;
-
-	&::placeholder {
-		color: #ccc;
-	}
-
-	&:focus {
-		outline: none;
-	}
+%active-item {
+	color: $active-color;
+	text-transform: uppercase;
 }
 
-%bdrs {
-	border-radius: 5px;
+%t-overflow {
+	white-space: nowrap;
+	text-overflow: ellipsis;
 	overflow: hidden;
 }

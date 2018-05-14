@@ -4,54 +4,130 @@
   <meta charset="UTF-8"/>
   <title>Index page</title>
   <link rel="stylesheet" href="dist/css/styles.css"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css"/>
 </head>
 <body>
-
-  <section class="section">
+  <section class="data">
     <div class="container">
-      <div class="chat">
-        <button class="btn-menu">
-          <span class="btn-menu__span btn-menu__span--top"></span>
-          <span class="btn-menu__span btn-menu__span--mid"></span>
-          <span class="btn-menu__span btn-menu__span--bot"></span>
-        </button>
-
-        <aside class="chat__contacts">
-          <div class="search">
-            <input class="search__input" type="search" name="search" placeholder="Search...">
-            <span class="search__icon icon icon--search"></span>
+      <aside class="data__sidebar"><a class="logo" href="#"> <i class="fab fa-lastfm logo__icon"></i>Logotype</a>
+        <div class="data-section">
+          <h4 class="data-section__title"> <i class="far fa-arrow-alt-circle-right"></i>Корреспонденция</h4>
+          <div class="data-section__item">Входящие <span class="notify notify--unreaded">6</span><span class="notify notify--readed">2</span></div>
+          <div class="data-section__item">Исходящие <span class="notify notify--unreaded">1</span></div>
+          <div class="data-section__item">Черновики</div>
+        </div>
+        <div class="data-section">
+          <h4 class="data-section__title"> <i class="far fa-arrow-alt-circle-right"></i>Проекты</h4>
+          <div class="data-section__item">Список </div>
+          <div class="data-section__item">Шаблоны отчетов </div>
+          <div class="data-section__item">Конструкция отчетов</div>
+        </div>
+        <div class="data-section">
+          <h4 class="data-section__title"> <i class="far fa-arrow-alt-circle-right"></i>Иерархии</h4>
+        </div>
+        <div class="data-section">
+          <h4 class="data-section__title"><i class="far fa-arrow-alt-circle-right"> </i>База данных</h4>
+          <div class="data-section__item">Записи  </div>
+          <div class="data-section__item">Атрибуты</div>
+          <div class="data-section__item">Словари</div>
+          <div class="data-section__item">Выборки</div>
+        </div>
+        <div class="data-section">
+          <h4 class="data-section__title"><i class="far fa-arrow-alt-circle-right"> </i>Пользователи</h4>
+          <div class="data-section__item">Активные </div>
+          <div class="data-section__item">Архив</div>
+          <div class="data-section__item">Отчеты</div>
+          <div class="data-section__item">Логи</div>
+        </div>
+        <div class="data-section">
+          <h4 class="data-section__title"> <i class="far fa-arrow-alt-circle-right"></i>Аналитика</h4>
+          <div class="data-section__item">Статистика </div>
+          <div class="data-section__item">Шаблоны отчетов</div>
+          <div class="data-section__item">Конструктор отчетов</div>
+        </div>
+      </aside>
+      <main class="data__main">
+        <header class="data__header">
+          <h3 class="data__header-title">База данных:</h3>
+          <ul class="data__nav">
+            <li class="data__nav-item"><a class="data__nav-link" href="#">Записи</a></li>
+            <li class="data__nav-item"><a class="data__nav-link" href="#">Атрибуты</a></li>
+            <li class="data__nav-item"><a class="data__nav-link" href="#">Словари</a></li>
+            <li class="data__nav-item"><a class="data__nav-link" href="#">Выборки</a></li>
+          </ul>
+          <div class="data__user"><span class="data__user-name">Инокентий Виссарионович</span>
+            <button class="btn-logout"><i class="fas fa-sign-out-alt"></i></button>
           </div>
-
-          <div class="contact is-active">
-            <img src="dist/img/cageholder_1.jpg" alt="person" class="contact__image">
-            <div class="contact__name">Mad Cage</div>
+        </header>
+        <div class="content">
+          <div class="content__head">
+            <div class="search">
+              <input class="search__input" type="text" placeholder="Search"/><i class="fas fa-search"></i>
+            </div>
+            <div class="btn-group">
+              <button class="btn">Создать группу атрибутов</button>
+              <button class="btn">Создать атрибут</button>
+            </div>
           </div>
-
-          <div class="contact">
-            <img src="dist/img/cageholder_2.jpg" alt="person" class="contact__image">
-            <div class="contact__name">Screaming Cage</div>
+          <div class="content__info">
+            <div class="tree" id="tree">
+              <ul>
+                <li class="tree__item">
+                   Черниговская <span class="tree__location">обл</span>
+                  <ul>
+                    <li class="tree__item">
+                       Буковинский <span class="tree__location">р-н.</span>
+                      <ul>
+                        <li class="tree__item">Чернигов<span class="tree__location"> м.</span>
+                          <ul>
+                            <li class="tree__item">Центральный <span class="tree__location">мр-н.</span>
+                              <ul>
+                                <li class="tree__item">Тараса Шевченка <span class="tree__location">вул.</span>
+                                  <ul> 
+                                    <li class="tree__item">1-11, 39-58, 84-200<span class="tree__location"> буд.</span></li>
+                                    <li class="tree__item">13<span class="tree__location"> буд.</span></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="tree__item">
+                   Нежинский <span class="tree__location">р-н.</span>
+                  <ul>
+                    <li class="tree__item">
+                       Буковинский <span class="tree__location">р-н.</span>
+                      <ul>
+                        <li class="tree__item">Чернигов<span class="tree__location"> м.</span>
+                          <ul>
+                            <li class="tree__item">Центральный <span class="tree__location">мр-н.</span>
+                              <ul>
+                                <li class="tree__item">Тараса Шевченка <span class="tree__location">вул.</span>
+                                  <ul> 
+                                    <li class="tree__item">1-11, 39-58, 84-200<span class="tree__location"> буд.</span></li>
+                                    <li class="tree__item">13<span class="tree__location"> буд.</span></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-
-          <div class="contact">
-            <img src="dist/img/cageholder_3.jpg" alt="person" class="contact__image">
-            <div class="contact__name">Serious Cage</div>
-          </div>
-        </aside>
-
-        <main class="chat__window">
-          <div class="chat__messages" id="#chat"></div>
-
-          <form action="#" class="send">
-            <input type="text" class="send__input" placeholder="Write something...">
-            <button class="send__btn" type="submit">
-              <span class="icon icon--telegram"></span>
-            </button>
-          </form>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
-  </section>
-
-  <script src="dist/js/libs.min.js"></script>
+  </section><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+<script src="dist/libs/common.js"></script>
 </body>

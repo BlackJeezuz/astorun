@@ -23,10 +23,5 @@ $global-font-icon: 'social';
       content: $icon-search;
     }
   }
-  &.icon--telegram {
-    &:before {
-      content: $icon-telegram;
-    }
-  }
 
 }
