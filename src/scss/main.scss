@@ -1,0 +1,97 @@
+@import 'normalize';
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Open Sans';
+}
+
+.news {
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__title {
+    text-align: center;
+  }
+}
+
+.article {
+  margin-bottom: 20px;
+  border: 2px solid #000;
+
+  &__head {
+    position: relative;
+    padding: 10px 100px 10px 20px;
+  }
+
+  &__title {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+  }
+
+  &__body {
+    padding: 20px;
+    font-size: 14px;
+
+    &-text {
+      padding: 0 20px;
+      transition: all 0.4s;
+      max-height: 300px;
+      @include scrollbar(5px, $active-color);
+
+      img {
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  min-width: 80px;
+  transform: translate(0, -50%);
+  background-color: transparent;
+  border: 1px solid $active-color;
+  color: $active-color;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--sm {
+    min-width: 140px;
+    font-size: 12px;
+  }
+
+  &.is-opened {
+    box-shadow: 0 0 10px currentColor;
+    text-shadow: 0 0 1px currentColor;
+  }
+}
+
+.comments {
+  &__head {
+    position: relative;
+    padding: 0 40px 0 20px;
+  }
+}
+
+.comment {
+  padding: 0 40px;
+}
