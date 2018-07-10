@@ -1,10 +1,28 @@
-const { Map, List } = require('immutable')
+import Cookies from 'js-cookie'
+import { 
+  REMOVE_ARTICLE,
+  ADD_ARTICLE,
+  SWITCH_BUTTONS,
+  REMOVE_COMMENT,
+  LOAD_DATA,
+  USER_LOGIN
+} from '../store/constants'
 
-const LOAD_ARTICLES = 'LOAD_ARTICLES'
-const REMOVE_ARTICLE = 'REMOVE_ARTICLE'
-const ADD_ARTICLE = 'ADD_ARTICLE'
-const SWITCH_BUTTONS = 'SWITCH_BUTTONS'
-const REMOVE_COMMENT = 'REMOVE_COMMENT'
+const { List } = require('immutable')
+
+export const userLogin = (loginUrl, email, password) => ({
+  type: USER_LOGIN,
+  meta: {
+    email,
+    password
+  },
+  loginUrl
+})
+
+export const loadData = url => ({
+  type: LOAD_DATA,
+  url
+});
 
 export const switchButtons = isRemoveVisible => (
   {
@@ -15,105 +33,106 @@ export const switchButtons = isRemoveVisible => (
   }
 )
 
-export const loadArticles = articles => (
-  {
-    type: LOAD_ARTICLES,
-    meta: {
-      articles
-    }
-  }
-);
 
-export const addArticle = article => (
+export const addArticle = (articleUrl, title, text, image) => (
   {
     type: ADD_ARTICLE,
     meta: {
-      article
-    }
+      text,
+      title,
+      image
+    },
+    articleUrl
   }
 )
 
-export const removeArticle = removingId => (
+export const removeArticle = removingUrl => (
   {
     type: REMOVE_ARTICLE,
-    meta: {
-      removingId
-    }
+    removingUrl
   }
 );
 
-export const removeComment = (articleId, commentId) => (
+export const removeComment = removingCommentUrl => (
   {
     type: REMOVE_COMMENT,
-    meta: {
-      articleId,
-      commentId
-    }
+    removingCommentUrl
   }
 )
 
 const initialState = {
+  isRemoveVisible: false,
+  apiUrl: '',
   articles: List(),
-  isRemoveVisible: true
+  isFetching: false,
+  token: '',
+  isUser: !!Cookies.get('token'),
+  isUserFetching: false,
+  isArticleFetching: false
 };
 
 const actionHandlers = {
-  LOAD_ARTICLES: (state, action) => {
-    const { meta } = action;
-
-    return { ...state, articles: [...meta.articles] };
-    // return state.set('articles', meta.articles)
-  },
-  REMOVE_ARTICLE: (state, action) => {
-    const { meta } = action;
-
-    /* const filtredArray = state.get('articles').filter(item => item.id !== meta.removingId); */
-    return { 
-      ...state, 
-      articles: state.articles.filter(item => item.id !== meta.removingId)
-    }
-    // return state.set('articles', filtredArray)
-  },
-  SWITCH_BUTTONS: (state, action) => {
-    const { meta } = action;
-
+  SWITCH_BUTTONS: (state) => {
     return { 
       ...state, 
       isRemoveVisible: !state.isRemoveVisible
     }
-    // return state.set('isRemoveVisible', !state.get('isRemoveVisible'))
   },
-  REMOVE_COMMENT: (state, action) => {
-    const { meta } = action;
-
-    const articles = state.get('articles').map(item => {
-      if (item.id === meta.articleId) {
-        return { ...item, comments: item.comments.filter(el => el.id !== meta.commentId) }
-      }
-      return item
-    })
-
-    return { 
-      ...state, 
-      articles: state.articles.map(item => {
-        if (item.id === meta.articleId) {
-          return { ...item, comments: item.comments.filter(el => el.id !== meta.commentId) }
-        }
-        return item
-      })
+  REMOVE_COMMENT_START: (state, action) => {
+    return {
+      ...state
     }
-
-    // return state.set('articles', articles)
   },
-  ADD_ARTICLE: (state, action) => {
-    const { meta } = action;
-
+  REMOVE_COMMENT_SUCCESS: (state, action) => {
+    return {
+      ...state
+    }
+  },
+  REMOVE_ARTICLE_START: state => {
+    return {
+      ...state
+    }
+  },
+  REMOVE_ARTICLE_SUCCESS: state => {
+    return {
+      ...state
+    }
+  },
+  ADD_ARTICLE_START: (state) => {
     return {
       ...state,
-      articles: [...state.articles, meta.article]
+      isArticleFetching: true
     }
+  },
+  ADD_ARTICLE_SUCCESS: (state, action) => {
+    return {
+      ...state,
+      isArticleFetching: false
+    }
+  },
+  LOAD_DATA: (state, action) => {
+    const { url } = action;
 
-    // return state.set('articles', articles) 
+    return { ...state, apiUrl: url };
+  },
+  LOAD_DATA_START: (state) => {
+    return { 
+      ...state, 
+      isFetching: true
+    }
+  },
+  LOAD_DATA_SUCCESS: (state, action) => {
+    const { payload } = action;
+    return { ...state, articles: [...payload.items], isFetching: false };
+  },
+  USER_LOGIN_START: (state, action) => {
+    return {
+      ...state,
+      isUserFetching: true
+    }
+  },
+  USER_LOGIN_SUCCESS: (state, action) => {
+    return { ...state, token: action.token, isUserFetching: false }
   }
 };
 
