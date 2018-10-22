@@ -119,7 +119,7 @@ export async function setContext(app, context) {
       store: app.store,
       payload: context.payload,
       error: context.error,
-      base: '/src/dist/',
+      base: '/dist/',
       env: {}
     }
     // Only set once

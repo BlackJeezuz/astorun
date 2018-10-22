@@ -2,7 +2,7 @@ const { resolve } = require('path')
 
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
-    base: '/src/dist/'
+    base: '/dist/'
   }
 } : {}
 

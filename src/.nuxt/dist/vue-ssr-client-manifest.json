@@ -1,5 +1,5 @@
 {
-  "publicPath": "/src/dist/_nuxt",
+  "publicPath": "/dist/_nuxt",
   "all": [
     "pages_shop_index.1176dc540fbcae3c9daf.js",
     "img/next.3e346fa.png",
@@ -22,16 +22,16 @@
     "layouts_aside.f91fe64e0ee201032625.js",
     "layouts_default.e3e032659a2c4d2d2592.js",
     "vendor.1d47a3a402d3b8cac83a.js",
-    "app.03c47a5fcf1c5d125cd1.js",
-    "manifest.3094da1325b9b6d96f88.js",
+    "app.a1ea629fd2f320e89b54.js",
+    "manifest.e704d9de389337200c55.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.3094da1325b9b6d96f88.js",
+    "manifest.e704d9de389337200c55.js",
     "vendor.1d47a3a402d3b8cac83a.js",
-    "app.03c47a5fcf1c5d125cd1.js"
+    "app.a1ea629fd2f320e89b54.js"
   ],
   "async": [
     "pages_shop_index.1176dc540fbcae3c9daf.js",
