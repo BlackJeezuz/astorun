@@ -72,7 +72,7 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/vue-carousel', ssr: false },
-    { src: '~/plugins/vee-validate', ssr: false }
+    { src: '~/plugins/vee-validate', ssr: false },
   ],
   ...routerBase
 }
