@@ -27,7 +27,8 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    publicPath: process.env.DEPLOY_ENV === 'GH_PAGES' ? '_nuxt/' : '/_nuxt/'
   },
   modules: [
     ['nuxt-sass-resources-loader', '@/assets/styles/tools/tools.scss'],
