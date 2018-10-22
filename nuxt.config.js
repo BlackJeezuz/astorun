@@ -1,3 +1,5 @@
+const { resolve } = require('path')
+
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/astorun/dist/'
@@ -28,7 +30,7 @@ module.exports = {
         })
       }
     },
-    publicPath: process.env.DEPLOY_ENV === 'GH_PAGES' ? '_nuxt/' : '/_nuxt/'
+    publicPath: process.env.DEPLOY_ENV === 'GH_PAGES' ? resolve(__dirname, '_nuxt/') : '/_nuxt/'
   },
   modules: [
     ['nuxt-sass-resources-loader', '@/assets/styles/tools/tools.scss'],
