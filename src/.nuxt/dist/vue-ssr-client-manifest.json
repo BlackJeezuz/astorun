@@ -1,5 +1,5 @@
 {
-  "publicPath": "/astorun/_nuxt",
+  "publicPath": "/astorun/_nuxt/",
   "all": [
     "pages_shop_index.1176dc540fbcae3c9daf.js",
     "img/next.3e346fa.png",
@@ -23,13 +23,13 @@
     "layouts_default.e3e032659a2c4d2d2592.js",
     "vendor.1d47a3a402d3b8cac83a.js",
     "app.4be5e19550a947e62cdc.js",
-    "manifest.081f7ef1db0be8f7513b.js",
+    "manifest.eb018c21d5aa6f85b0ff.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.081f7ef1db0be8f7513b.js",
+    "manifest.eb018c21d5aa6f85b0ff.js",
     "vendor.1d47a3a402d3b8cac83a.js",
     "app.4be5e19550a947e62cdc.js"
   ],
