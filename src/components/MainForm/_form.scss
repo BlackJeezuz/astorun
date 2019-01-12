@@ -6,8 +6,7 @@
   }
 
   .btn-group {
-    display: flex;
-    justify-content: center;
+    @extend %flex-jc;
     .btn-main {
       margin: 0;
 

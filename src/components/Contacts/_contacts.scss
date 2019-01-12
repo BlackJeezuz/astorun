@@ -4,7 +4,7 @@
   max-width: 550px;
   margin: 0 auto;
   &-wrapper {
-    display: flex;
+    @extend %flex;
     padding: 40px 0 0 0;
   }
 
@@ -28,7 +28,7 @@
     text-decoration: none;
 
     &:hover {
-      color: $second-color;
+      color: $main-color;
     }
   }
 

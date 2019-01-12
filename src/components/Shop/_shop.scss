@@ -39,7 +39,7 @@
   }
 
   &__buttons {
-    display: flex;
+    @extend %flex;
     flex-direction: column;
     z-index: 20;
 
@@ -59,9 +59,7 @@
 
   &__overlay {
     @include stretch;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %flex-jc-ac;
     transform: translateX(-100%);
     background-color: rgba(#000, 0.5);
     transition: transform 0.3s;

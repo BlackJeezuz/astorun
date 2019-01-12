@@ -1,0 +1,165 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  background-color: #fff;
+  box-shadow: 0 1px 20px rgba(#000, .5);
+  z-index: 5;
+  &__container {
+    @extend %flex-ac;
+
+    @media only screen and (max-width : 767px) {
+      justify-content: space-between;
+    }
+  }
+
+  &__overlay {
+    @extend %flex-sb-ac;
+    margin-left: 60px;
+    flex: 1;
+
+    @media only screen and (max-width : 767px) {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin-left: 0;
+      flex-direction: column;
+      background-color: rgba(#000, .8);
+    }
+  }
+
+  &__langs {
+    margin-bottom: 30px;
+  }
+}
+
+.logo {
+  display: block;
+  width: 70px;
+  &__img {
+    max-width: 100%;
+  }
+}
+
+.nav {
+  font-weight: bold;
+  text-transform: uppercase;
+  @media only screen and (max-width : 767px) {
+    margin: auto 0;
+  }
+  &__list {
+    @extend %flex;
+    @media only screen and (max-width : 767px) {
+      flex-direction: column;
+      text-align: center;
+      color: #fff;
+    }
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 40px;
+      @media only screen and (max-width : 767px) {
+        margin: 0 0 30px 0;
+      }
+    }
+  }
+  &__link {
+    &:hover {
+      color: $main-color;
+    }
+    &.nuxt-link-exact-active {
+      color: $main-color;
+      border-bottom: 2px solid currentColor;
+    }
+  }
+}
+
+
+.btn-local {
+  text-decoration: none;
+  color: $main-color;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  @media only screen and (max-width : 767px) {
+    color: #fff;
+  }
+
+  &.is-active {
+    border-bottom: 2px solid currentColor;
+
+    @media only screen and (max-width : 767px) {
+      color: $main-color;
+    }
+  }
+}
+
+.btn-menu {
+  display: none;
+  position: relative;
+  height: 30px;
+  padding-right: 50px;
+  color: $main-color;
+  font-size: 20px;
+  font-weight: 600;
+  @media only screen and (max-width : 767px) {
+    display: block;
+  }
+  &__item {
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 4px;
+    background-color: currentColor;
+    border-radius: 5px;
+    transition: transform .3s, opacity .3s;
+
+    &--top,
+    &--bot {
+      transform-origin: 0 50%;
+    }
+
+    &--top {
+      top: 0;
+    }
+
+    &--mid {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &--bot {
+      bottom: 0;
+    }
+  }
+
+  &.is-active {
+    @media only screen and (max-width : 767px) {
+      z-index: 5;
+      color: #fff;
+
+      & ~ .header__overlay {
+        display: flex;
+      }
+    }
+    .btn-menu__item {
+      &--top {
+        transform: rotate(40deg);
+      }
+
+      &--mid {
+        transform: translateY(-50%) rotate(180deg);
+        opacity: 0;
+      }
+      &--bot {
+        transform: rotate(-40deg);
+      }
+    }
+  }
+}

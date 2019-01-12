@@ -20,12 +20,12 @@
     }
     &:focus {
       outline: none;
-      border-bottom-color: $second-color;
+      border-bottom-color: $main-color;
       &+label {
-        color: $second-color;
+        color: $main-color;
       }
       &~.field__icon {
-        color: $second-color;
+        color: $main-color;
       }
     }
   }
@@ -86,12 +86,12 @@
     border-radius: 10px;
     &:focus {
       outline: none;
-      border-color: $second-color;
+      border-color: $main-color;
       &+label {
         top: -25px;
         left: 0;
         font-size: 14px;
-        color: $second-color;
+        color: $main-color;
       }
     }
   }

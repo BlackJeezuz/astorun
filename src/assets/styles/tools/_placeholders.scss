@@ -1,0 +1,35 @@
+%flex {
+  display: flex;
+}
+
+%flex-ac {
+  @extend %flex;
+  align-items: center;
+}
+
+%flex-sb {
+  @extend %flex;
+  justify-content: space-between;
+}
+
+%flex-sb-ac {
+  @extend %flex-sb;
+  align-items: center;
+}
+
+%flex-jc {
+  @extend %flex;
+  justify-content: center;
+}
+
+%flex-jc-ac {
+  @extend %flex-jc;
+  align-items: center;
+}
+
+%stretch {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

@@ -1,9 +1,12 @@
-.page-enter-active, .page-leave-active {
+.page-enter-active, .page-leave-active,
+.layout-enter-active, .layout-leave-active {
   transition: opacity .5s
 }
-.page-enter, .page-leave-active {
+.page-enter, .page-leave-active,
+.layout-enter, .layout-leave-active {
   opacity: 0
 }
+
 
 .bounce-enter-active {
   animation: bounce-in .8s;

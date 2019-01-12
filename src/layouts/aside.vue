@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <SideMenu />
+  <div class="wrapper">
+    <Header />
     <nuxt />
   </div>
 </template>
 
 <script>
-import SideMenu from '~/components/SideMenu'
+import Header from '~/components/Header'
 export default {
   components: {
-    SideMenu
+    Header
   }
 }
 </script>
