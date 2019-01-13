@@ -1,7 +1,6 @@
 import './middleware';
 import Vue from 'vue'
 
-
 function localePathFactory (i18nPath, routerPath) {
   return function localePath (route, locale) {
     // Abort if no route or no locale
@@ -33,7 +32,6 @@ function localePathFactory (i18nPath, routerPath) {
     return href
   }
 }
-
 
 function switchLocalePathFactory (i18nPath) {
   return function switchLocalePath (locale) {
@@ -67,7 +65,6 @@ function switchLocalePathFactory (i18nPath) {
 }
 
 function getRouteBaseNameFactory (contextRoute) {
-
   const routeGetter  = contextRoute ? route => route || contextRoute :
   function (route) {
     return route || this.$route
@@ -90,7 +87,6 @@ Vue.mixin({
     getRouteBaseName: getRouteBaseNameFactory()
   }
 })
-
 
 export default ({ app, route }) => {
   app.localePath = localePathFactory('i18n', 'router')

@@ -10,7 +10,7 @@
         :navigationPrevLabel="'<span class=\'slider__arrow slider__arrow--prev\' />'"
         :loop="true"
       >
-        <slot></slot>
+        <slot />
       </carousel>
     </no-ssr>
   </div>

@@ -1,24 +1,24 @@
 <template>
   <section class="section contacts-section">
     <div class="container">
-      <h2 class="main-title">{{ $t('contacts.title') }}</h2>
+      <h1 class="main-title">{{ $t('contacts.title') }}</h1>
       <div class="contacts-wrapper">
         <ul class="contacts">
           <li class="contacts__item">
             <div class="contacts__caption">{{ $t('contacts.phone') }}</div>
-            <a href="#" class="contacts__link"><fa class="contacts__icon" :icon="['fas', 'phone']" />+380962790520</a>
+            <a href="#" class="contacts__link"><i class="contacts__icon fas fa-phone" />+380962790520</a>
           </li>
           <li class="contacts__item">
             <div class="contacts__caption">{{ $t('contacts.mail') }}</div>
-            <a href="#" class="contacts__link"><fa class="contacts__icon" :icon="['fas', 'envelope']" />ruslan201010@gmail.com</a>
+            <a href="#" class="contacts__link"><i class="contacts__icon fas fa-envelope" />ruslan201010@gmail.com</a>
           </li>
           <li class="contacts__item">
             <div class="contacts__caption">{{ $t('contacts.telegram') }}</div>
-            <a href="#" class="contacts__link"><fa class="contacts__icon" :icon="['fab', 'telegram-plane']" />@BlackJeezuz</a>
+            <a href="#" class="contacts__link"><i class="contacts__icon fab fa-telegram-plane" />@BlackJeezuz</a>
           </li>
           <li class="contacts__item">
             <div class="contacts__caption">{{ $t('contacts.adress') }}</div>
-            <a href="#" class="contacts__link"><fa class="contacts__icon" :icon="['fas', 'map-marker-alt']" />{{ $t('contacts.place') }}</a>
+            <a href="#" class="contacts__link"><i class="contacts__icon fas fa-map-marker-alt" />{{ $t('contacts.place') }}</a>
           </li>
         </ul>
         <main-form class="form--contacts" :reqFields="['name', 'email', 'message']" />

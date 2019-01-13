@@ -34,7 +34,9 @@
   }
 
   &__langs {
-    margin-bottom: 30px;
+    @media only screen and (max-width : 767px) {
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -47,10 +49,12 @@
 }
 
 .nav {
-  font-weight: bold;
   text-transform: uppercase;
+  font-weight: 500;
+
   @media only screen and (max-width : 767px) {
     margin: auto 0;
+    font-weight: bold;
   }
   &__list {
     @extend %flex;

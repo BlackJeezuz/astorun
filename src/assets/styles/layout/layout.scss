@@ -9,57 +9,15 @@
   transition: all .5s cubic-bezier(.55,0,.1,1);
 }
 
+.btn-group {
+  button, a {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+
 .btn {
-  &-group {
-    button, a {
-      &:not(:last-child) {
-        margin-right: 10px;
-      }
-    }
-  }
-
-  &-main {
-    position: relative;
-    padding: 5px 10px;
-    width: 150px;
-    background-color: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    overflow: hidden;
-    font-weight: bold;
-    
-    &:before {
-      content: '';
-      @include stretch;
-      background-color: #fff;
-      transform: translateX(-100%);
-      z-index: -1;
-      transition: transform .3s;
-    }
-
-    &:hover {
-      color: #535353;
-      &:before {
-        transform: translateX(0);
-      }
-    }
-
-    &--danger {
-      display: block;
-      border-color: $main-color;
-      color: $main-color;
-      margin: 2rem auto;
-      text-align: center;
-      &:before {
-        background-color: $main-color;
-      }
-
-      &:hover {
-        color: #fff;
-      }
-    }
-  }
-
   &-default {
     background-color: transparent;
     border: none;
@@ -83,6 +41,47 @@
       color: #fff;
       background-color: $main-color;
       border-color: $main-color;
+    }
+  }
+}
+
+.btn-main {
+  position: relative;
+  padding: 5px 10px;
+  width: 150px;
+  background-color: transparent;
+  border: 2px solid currentColor;
+  overflow: hidden;
+  font-weight: bold;
+  z-index: 1;
+  &::before {
+    content: '';
+    position: absolute;
+    @extend %stretch;
+    background-color: transparent;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform .3s;
+  }
+
+  &:hover {
+    &:before {
+      transform: translateX(0);
+    }
+  }
+
+  &--danger {
+    display: block;
+    border-color: $main-color;
+    color: $main-color;
+    margin: 2rem auto;
+    text-align: center;
+    &:before {
+      background-color: $main-color;
+    }
+
+    &:hover {
+      color: #fff;
     }
   }
 }
@@ -122,21 +121,28 @@
 }
 
 .main-title {
-  margin-bottom: 40px;
+  font-size: 24px;
+  margin: 20px 0 40px 0;
   text-transform: uppercase;
   text-align: center;
 }
 
+.main-link {
+  color: $main-color;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .section {
-  padding: 150px 20px 40px 20px;
+  padding: 100px 0 40px 0;
 }
 
 .logo-link {
   display: block;
-  max-width: 300px;
-  margin: 0 auto;
-  img {
-    max-width: 300px;
+  max-width: 250px;
+  margin: 0 auto 20px auto;
+  @media only screen and (max-width : 767px) {
+    max-width: 200px;
   }
 }
 @media only screen  and (max-width : 460px) {
@@ -157,6 +163,12 @@
   }
 }
 
+.mob-hidden {
+  @media only screen and (max-width : 767px) {
+    display: none;
+  }
+}
 .wrapper {
+  min-height: 100vh;
   background-image: url('~assets/images/bg.jpg');
 }

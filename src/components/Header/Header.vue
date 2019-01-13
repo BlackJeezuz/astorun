@@ -19,7 +19,7 @@
       <div class="header__overlay">
         <nav class="nav">
           <ul class="nav__list">
-            <li v-for="link in navigation" :key="link.path" class="nav__item">
+            <li v-for="link in navigation" :key="link.path" class="nav__item" @click="isMenuActive=false">
               <nuxt-link :to="localePath(link.path)" class="nav__link">{{ $t(link.text) }}</nuxt-link>
             </li>
           </ul>
@@ -57,6 +57,9 @@ export default {
       }, {
         text: 'links.contacts',
         path: 'contacts'
+      }, {
+        text: 'links.news',
+        path: 'news'
       }]
     }
   },

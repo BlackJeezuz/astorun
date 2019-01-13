@@ -43,10 +43,7 @@ export default {
           placeholder: this.$t('placeholders.name'),
           name: 'name',
           type: 'text',
-          icon: {
-            prefix: 'far',
-            class: 'user'
-          },
+          icon: 'far fa-user',
           value: '',
           isValid: false
         },
@@ -55,10 +52,7 @@ export default {
           placeholder: this.$t('placeholders.mail'),
           name: 'email',
           type: 'email',
-          icon: {
-            prefix: 'far',
-            class: 'envelope'
-          },
+          icon: 'far fa-envelope',
           value: '',
           isValid: false
         },
@@ -68,10 +62,7 @@ export default {
           name: 'phone',
           type: 'tel',
           value: '',
-          icon: {
-            prefix: 'fas',
-            class: 'mobile-alt'
-          },
+          icon: 'fas fa-mobile-alt',
           isValid: false
         },
         message: {
@@ -80,10 +71,7 @@ export default {
           name: 'message',
           type: 'textarea',
           value: '',
-          icon: {
-            prefix: 'far',
-            class: 'comments'
-          },
+          icon: 'far fa-comments',
           isValid: false
         }
       }

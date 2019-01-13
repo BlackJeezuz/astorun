@@ -21,7 +21,10 @@ export default {
     event: 'click'
   },
   props: {
-    tab: String,
+    tab: {
+      type: String,
+      default: ''
+    },
     activeProduct: {
       type: Object,
       default: () => { return {} }

@@ -2,7 +2,7 @@
   <div class="checkbox">
     <input @change="changeHandle($event)" :id="id" type="checkbox" class="checkbox__input" :checked="checked">
     <label :for="id" class="checkbox__label">
-      <slot></slot>
+      <slot />
     </label>
   </div>
 </template>
@@ -33,5 +33,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'checkbox';
+@import "checkbox";
 </style>

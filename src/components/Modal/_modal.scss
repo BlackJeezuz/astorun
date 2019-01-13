@@ -63,8 +63,6 @@
     }
 
     &:hover {
-      transform: rotate(180deg) scale(1.1);
-
       &:after,
       &:before {
         background-color: #fff;

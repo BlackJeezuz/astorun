@@ -20,7 +20,8 @@ export default {
   },
   props: {
     isOpened: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     images: {
       type: Array,

@@ -8,7 +8,10 @@
       @blur="handleBlur"
       :name="name"
     />
-    <label :for="id" :class="['text-field__label', {'is-active': !!value}]"><fa v-if="icon" class="text-field__icon" :icon="[icon.prefix, icon.class]" /><slot></slot></label>
+    <label :for="id" :class="['text-field__label', {'is-active': !!value}]">
+      <span v-if="icon" :class="['text-field__icon', icon]" />
+      <slot />
+    </label>
     <div v-if="errorMsg" class="field__error">* {{ errorMsg }}</div>
   </div>
   <div v-else :class="['field', {'invalid': !!errorMsg}]">
@@ -21,9 +24,9 @@
       @blur="handleBlur"
     >
     <label :for="id" class="field__label">
-      <slot></slot>
+      <slot />
     </label>
-    <fa v-if="icon" class="field__icon" :icon="[icon.prefix, icon.class]" />
+    <span v-if="icon" :class="['field__icon', icon]" />
     <div v-if="errorMsg" class="field__error">* {{ errorMsg }}</div>
   </div>
 </template>
@@ -49,7 +52,8 @@ export default {
       default: ''
     },
     icon: {
-      type: Object
+      type: String,
+      default: ''
     },
     rule: {
       type: String,

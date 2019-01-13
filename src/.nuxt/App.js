@@ -1,23 +1,16 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import '..\\node_modules\\@fortawesome\\fontawesome-svg-core\\styles.css'
-
 import '..\\assets\\styles\\layout\\layout.scss'
 
+import _770d4302 from '..\\layouts\\aside.vue'
+import _6f6c098b from '..\\layouts\\default.vue'
 
-let layouts = {
-
-  "_aside": () => import('..\\layouts\\aside.vue'  /* webpackChunkName: "layouts_aside" */).then(m => m.default || m),
-
-  "_default": () => import('..\\layouts\\default.vue'  /* webpackChunkName: "layouts_default" */).then(m => m.default || m)
-
-}
-
-let resolvedLayouts = {}
+const layouts = { "_aside": _770d4302,"_default": _6f6c098b }
 
 export default {
-  head: {"title":"astorun","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Astorun shop created by Ruslan Lukianennko with Vue.js"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+  head: {"title":"astorun","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Astorun - your online shop"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fuse.fontawesome.com\u002Freleases\u002Fv5.5.0\u002Fcss\u002Fall.css","integrity":"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU","crossorigin":"anonymous"}],"style":[],"script":[]},
+
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')
@@ -32,10 +25,18 @@ export default {
       props: {
         name: 'layout',
         mode: 'out-in'
+      },
+      on: {
+        beforeEnter(el) {
+          // Ensure to trigger scroll event after calling scrollBehavior
+          window.$nuxt.$nextTick(() => {
+            window.$nuxt.$emit('triggerScroll')
+          })
+        }
       }
     }, [ templateEl ])
 
-    return h('div',{
+    return h('div', {
       domProps: {
         id: '__nuxt'
       }
@@ -48,10 +49,10 @@ export default {
     layout: null,
     layoutName: ''
   }),
-  beforeCreate () {
+  beforeCreate() {
     Vue.util.defineReactive(this, 'nuxt', this.$options.nuxt)
   },
-  created () {
+  created() {
     // Add this.$nuxt in child instances
     Vue.prototype.$nuxt = this
     // add to window so we can listen when ready
@@ -61,51 +62,38 @@ export default {
     // Add $nuxt.error()
     this.error = this.nuxt.error
   },
-  
-  mounted () {
+
+  mounted() {
     this.$loading = this.$refs.loading
   },
   watch: {
     'nuxt.err': 'errorChanged'
   },
-  
+
   methods: {
-    
-    errorChanged () {
+    errorChanged() {
       if (this.nuxt.err && this.$loading) {
         if (this.$loading.fail) this.$loading.fail()
         if (this.$loading.finish) this.$loading.finish()
       }
     },
-    
-    setLayout (layout) {
-      if (!layout || !resolvedLayouts['_' + layout]) layout = 'default'
+
+    setLayout(layout) {
+      if (!layout || !layouts['_' + layout]) {
+        layout = 'default'
+      }
       this.layoutName = layout
-      let _layout = '_' + layout
-      this.layout = resolvedLayouts[_layout]
+      this.layout = layouts['_' + layout]
       return this.layout
     },
-    loadLayout (layout) {
-      if (!layout || !(layouts['_' + layout] || resolvedLayouts['_' + layout])) layout = 'default'
-      let _layout = '_' + layout
-      if (resolvedLayouts[_layout]) {
-        return Promise.resolve(resolvedLayouts[_layout])
+    loadLayout(layout) {
+      if (!layout || !layouts['_' + layout]) {
+        layout = 'default'
       }
-      return layouts[_layout]()
-      .then((Component) => {
-        resolvedLayouts[_layout] = Component
-        delete layouts[_layout]
-        return resolvedLayouts[_layout]
-      })
-      .catch((e) => {
-        if (this.$nuxt) {
-          return this.$nuxt.error({ statusCode: 500, message: e.message })
-        }
-      })
+      return Promise.resolve(layouts['_' + layout])
     }
   },
   components: {
     NuxtLoading
   }
 }
-

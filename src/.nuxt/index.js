@@ -1,4 +1,3 @@
-import 'es6-promise/auto'
 import Vue from 'vue'
 import Meta from 'vue-meta'
 import { createRouter } from './router.js'
@@ -8,17 +7,17 @@ import NuxtLink from './components/nuxt-link.js'
 import NuxtError from './components/nuxt-error.vue'
 import Nuxt from './components/nuxt.js'
 import App from './App.js'
-import { setContext, getLocation, getRouteData } from './utils'
+import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_templatesplugin5c1874e6_8443c5c6 from 'nuxt_plugin_templatesplugin5c1874e6_8443c5c6' // Source: ./templates.plugin.5c1874e6.js
+
 import nuxt_plugin_pluginseo_0dce0592 from 'nuxt_plugin_pluginseo_0dce0592' // Source: ./nuxt-i18n\\plugin.seo.js
 import nuxt_plugin_pluginrouting_ffc15eee from 'nuxt_plugin_pluginrouting_ffc15eee' // Source: ./nuxt-i18n\\plugin.routing.js
 import nuxt_plugin_pluginmain_67818f86 from 'nuxt_plugin_pluginmain_67818f86' // Source: ./nuxt-i18n\\plugin.main.js
+import nuxt_plugin_axios_7ca689b0 from 'nuxt_plugin_axios_7ca689b0' // Source: ./axios.js
 import nuxt_plugin_vuecarousel_6c010c3d from 'nuxt_plugin_vuecarousel_6c010c3d' // Source: ..\\plugins\\vue-carousel (ssr: false)
 import nuxt_plugin_veevalidate_6e5ad03a from 'nuxt_plugin_veevalidate_6e5ad03a' // Source: ..\\plugins\\vee-validate (ssr: false)
-
 
 // Component: <no-ssr>
 Vue.component(NoSSR.name, NoSSR)
@@ -42,16 +41,19 @@ Vue.use(Meta, {
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
-async function createApp (ssrContext) {
-  const router = createRouter(ssrContext)
+async function createApp(ssrContext) {
+  const router = await createRouter(ssrContext)
 
-  
   const store = createStore(ssrContext)
   // Add this.$router into store actions/mutations
   store.$router = router
-  
+
+  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+  const registerModule = store.registerModule
+  store.registerModule = (path, rawModule, options) => registerModule.call(store, path, rawModule, Object.assign({ preserveState: process.client }, options))
 
   // Create Root instance
+
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
@@ -60,7 +62,7 @@ async function createApp (ssrContext) {
     nuxt: {
       defaultTransition,
       transitions: [ defaultTransition ],
-      setTransitions (transitions) {
+      setTransitions(transitions) {
         if (!Array.isArray(transitions)) {
           transitions = [ transitions ]
         }
@@ -79,24 +81,24 @@ async function createApp (ssrContext) {
       },
       err: null,
       dateErr: null,
-      error (err) {
+      error(err) {
         err = err || null
         app.context._errored = !!err
-        if (typeof err === 'string') err = { statusCode: 500, message: err }
+        err = err ? normalizeError(err) : null
         const nuxt = this.nuxt || this.$options.nuxt
         nuxt.dateErr = Date.now()
         nuxt.err = err
-        // Used in lib/server.js
+        // Used in src/server.js
         if (ssrContext) ssrContext.nuxt.error = err
         return err
       }
     },
     ...App
   }
-  
+
   // Make app available into store via this.app
   store.app = app
-  
+
   const next = ssrContext ? ssrContext.next : location => app.router.push(location)
   // Resolve route
   let route
@@ -121,14 +123,14 @@ async function createApp (ssrContext) {
 
   const inject = function (key, value) {
     if (!key) throw new Error('inject(key, value) has no key provided')
-    if (!value) throw new Error('inject(key, value) has no value provided')
+    if (typeof value === 'undefined') throw new Error('inject(key, value) has no value provided')
     key = '$' + key
     // Add into app
     app[key] = value
-    
+
     // Add into store
     store[key] = app[key]
-    
+
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
     if (Vue[installKey]) return
@@ -137,7 +139,7 @@ async function createApp (ssrContext) {
     Vue.use(() => {
       if (!Vue.prototype.hasOwnProperty(key)) {
         Object.defineProperty(Vue.prototype, key, {
-          get () {
+          get() {
             return this.$root.$options[key]
           }
         })
@@ -145,23 +147,21 @@ async function createApp (ssrContext) {
     })
   }
 
-  
-  if (process.browser) {
+  if (process.client) {
     // Replace store state before plugins execution
     if (window.__NUXT__ && window.__NUXT__.state) {
       store.replaceState(window.__NUXT__.state)
     }
   }
-  
 
   // Plugin execution
-  
-  if (typeof nuxt_plugin_templatesplugin5c1874e6_8443c5c6 === 'function') await nuxt_plugin_templatesplugin5c1874e6_8443c5c6(app.context, inject)
+
   if (typeof nuxt_plugin_pluginseo_0dce0592 === 'function') await nuxt_plugin_pluginseo_0dce0592(app.context, inject)
   if (typeof nuxt_plugin_pluginrouting_ffc15eee === 'function') await nuxt_plugin_pluginrouting_ffc15eee(app.context, inject)
   if (typeof nuxt_plugin_pluginmain_67818f86 === 'function') await nuxt_plugin_pluginmain_67818f86(app.context, inject)
-  
-  if (process.browser) { 
+  if (typeof nuxt_plugin_axios_7ca689b0 === 'function') await nuxt_plugin_axios_7ca689b0(app.context, inject)
+
+  if (process.client) {
     if (typeof nuxt_plugin_vuecarousel_6c010c3d === 'function') await nuxt_plugin_vuecarousel_6c010c3d(app.context, inject)
     if (typeof nuxt_plugin_veevalidate_6e5ad03a === 'function') await nuxt_plugin_veevalidate_6e5ad03a(app.context, inject)
   }
@@ -185,8 +185,8 @@ async function createApp (ssrContext) {
 
   return {
     app,
-    router,
-    store
+    store,
+    router
   }
 }
 

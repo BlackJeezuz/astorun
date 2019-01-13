@@ -1,3 +1,5 @@
+const pkg = require('./package')
+
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/astorun/'
@@ -5,21 +7,53 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 } : {}
 
 module.exports = {
+  mode: 'universal',
+
+  /*
+  ** Headers of the page
+  */
   head: {
-    title: 'astorun',
+    title: pkg.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Astorun shop created by Ruslan Lukianennko with Vue.js' }
+      { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
+        integrity: 'sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU',
+        crossorigin: 'anonymous'
+      }
     ]
   },
-  loading: { color: '#3B8070' },
+
+  /*
+  ** Customize the progress-bar color
+  */
+  loading: { color: '#fff' },
+
+  /*
+  ** Global CSS
+  */
+  css: [
+  ],
+
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+  ],
+  /*
+  ** Build configuration
+  */
   build: {
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
+    /*
+    ** You can extend webpack config here
+    */
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -29,7 +63,11 @@ module.exports = {
       }
     }
   },
+  generate: {
+    routes: ['news/awesome-product-is-comming', 'news/awesome-product-2']
+  },
   modules: [
+    '@nuxtjs/axios',
     ['nuxt-sass-resources-loader', '@/assets/styles/tools/tools.scss'],
     ['nuxt-i18n', {
       defaultLocale: 'ru',
@@ -52,19 +90,6 @@ module.exports = {
         }
       }
     }],
-    ['nuxt-fontawesome', {
-      component: 'fa',
-      imports: [{
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
-      }, {
-        set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab']
-      }, {
-        set: '@fortawesome/free-regular-svg-icons',
-        icons: ['far']
-      }]
-    }]
   ],
   css: [
     '~/assets/styles/layout/layout.scss'

@@ -1,12 +1,12 @@
 <template>
-<transition name="modal">
-  <div v-if="isOpened" class="overlay" @click.self="close">
-    <div class="modal">
-      <slot></slot>
-      <button @click="close" class="btn-default modal__close" :title="$t('buttons.close')" />
+  <transition name="modal">
+    <div v-if="isOpened" class="overlay" @click.self="close">
+      <div class="modal">
+        <slot />
+        <button @click="close" class="btn-default modal__close" :title="$t('buttons.close')" />
+      </div>
     </div>
-  </div>
-</transition>
+  </transition>
 </template>
 
 <script>

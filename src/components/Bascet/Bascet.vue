@@ -16,22 +16,22 @@
       <ul class="social-list">
         <li class="social-list__item">
           <a href="#" class="social-list__link">
-            <fa :icon="['fab', 'vk']" />
+            <span class="fab fa-vk" />
           </a>
         </li>
         <li class="social-list__item">
           <a href="#" class="social-list__link">
-            <fa :icon="['fab', 'facebook-square']" />
+            <span class="fab fa-facebook-square" />
           </a>
         </li>
         <li class="social-list__item">
           <a href="#" class="social-list__link">
-            <fa :icon="['fab', 'instagram']" />
+            <span class="fab fa-instagram" />
           </a>
         </li>
         <li class="social-list__item">
           <a href="#" class="social-list__link">
-            <fa :icon="['fab', 'youtube']" />
+            <span class="fab youtube" />
           </a>
         </li>
       </ul>
@@ -51,11 +51,11 @@ export default {
     MainForm,
     Slider
   },
-  created () {
-    if (!this.selectedProducts.length) this.$router.push('shop')
-  },
   computed: {
     ...mapGetters(['selectedProducts'])
+  },
+  created () {
+    if (!this.selectedProducts.length) this.$router.push('shop')
   },
   methods: {
     getImgUrl (imgName) {

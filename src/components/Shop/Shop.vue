@@ -1,7 +1,7 @@
 <template>
   <section class="section shop">
     <div class="container">
-      <h2 class="main-title">{{ $t('shop.title') }}</h2>
+      <h1 class="main-title">{{ $t('shop.title') }}</h1>
       <div class="shop__content">
         <slider>
           <slide v-for="product in hats" :key="product.id">

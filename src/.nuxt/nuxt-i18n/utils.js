@@ -16,7 +16,6 @@ export async function loadLanguageAsync (i18n, locale) {
     if (langOptions) {
       const file = langOptions[LOCALE_FILE_KEY]
       if (file) {
-        
       } else {
         console.warn('[nuxt-i18n] Could not find lang file for locale ' + locale)
       }
