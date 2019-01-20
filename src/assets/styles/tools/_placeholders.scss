@@ -39,3 +39,9 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+%cent-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

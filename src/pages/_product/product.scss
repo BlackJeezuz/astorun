@@ -1,0 +1,131 @@
+.product {
+  &__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  &__slider {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__slider,
+  &__info,
+  &__description {
+    margin-bottom: 20px;
+  }
+  &__info {
+    padding: 15px 0;
+    background-color: #F4F4F4;
+    font-size: 18px;
+    .product__container {
+      @extend %flex-ac;
+      @media only screen and (max-width : 350px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__dropdown {
+    margin: 0 20px 0 auto;
+    @media only screen and (max-width : 350px) {
+      margin-left: 0;
+    }
+  }
+
+  &__btn {
+    min-width: 125px;
+    padding: 7px 20px;
+    font-weight: 500;
+    border-radius: 7px;
+    background-color: $main-color;
+    border: 2px solid #ADADAD;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+
+    &:hover,
+    &:focus {
+      border-color: $main-color;
+    }
+  }
+
+  &__price {
+    font-weight: bold;
+    font-style: italic;
+    color: $main-color;
+    font-size: 24px;
+    @media only screen and (max-width : 440px) {
+      font-size: 22px;
+    }
+    @media only screen and (max-width : 350px) {
+      width: 100%;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+}
+
+.product-nav {
+  font-size: 18px;
+  &__link {
+    position: relative;
+    display: block;
+    padding: 10px 45px;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 2px solid $main-color;
+    font-weight: 500;
+    color: $main-color;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all .3s;
+    @media only screen and (max-width : 767px) {
+      background-color: $main-color;
+      color: #fff;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $main-color;
+      color: #fff;
+      border-color: $main-color;
+    }
+    &--prev {
+      .product-nav__icon {
+        left: 20px;
+      }
+
+      &:hover,
+      &:focus {
+        .product-nav__icon {
+          transform: translate(-5px, -50%);
+        }
+      }
+    }
+
+    &--next {
+      .product-nav__icon {
+        right: 20px;
+      }
+      &:hover,
+      &:focus {
+        .product-nav__icon {
+          transform: translate(5px, -50%);
+        }
+      }
+    }
+  }
+
+  &__icon {
+    @extend %cent-y;
+    transition: transform .3s;
+  }
+}

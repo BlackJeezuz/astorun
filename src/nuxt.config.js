@@ -1,3 +1,8 @@
+const filters = require('./static/filters.json')
+const hat = require('./static/hat.json')
+const pants = require('./static/pants.json')
+const sweetshot = require('./static/sweetshot.json')
+
 const pkg = require('./package')
 
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
@@ -8,10 +13,6 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 
 module.exports = {
   mode: 'universal',
-
-  /*
-  ** Headers of the page
-  */
   head: {
     title: pkg.name,
     meta: [
@@ -27,30 +28,12 @@ module.exports = {
       }
     ]
   },
-
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#fff' },
-
-  /*
-  ** Global CSS
-  */
   css: [
   ],
-
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
   ],
-  /*
-  ** Build configuration
-  */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
@@ -64,7 +47,17 @@ module.exports = {
     }
   },
   generate: {
-    routes: ['news/awesome-product-is-comming', 'news/awesome-product-2']
+    routes: function () {
+      return [
+        ...filters.map(filter => `shop/${filter}`),
+        ...hat.map(item => item.id),
+        ...pants.map(item => item.id),
+        ...sweetshot.map(item => item.id),
+        'news/awesome-product-is-comming',
+        'news/awesome-product-2'
+      ]
+    }
+    // routes: ['news/awesome-product-is-comming', 'news/awesome-product-2']
   },
   modules: [
     '@nuxtjs/axios',

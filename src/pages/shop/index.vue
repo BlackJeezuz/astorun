@@ -1,4 +1,37 @@
+<template>
+  <section class="section shop">
+    <div class="container">
+      <h1 class="main-title">{{ $t('shop.title') }}</h1>
+      <nav class="shop-nav">
+        <ul class="shop-nav__list">
+          <li v-for="filter in filters" class="shop-nav__item" :key="filter">
+            <nuxt-link :to="`${localePath({ name: 'shop-filter', params: { filter: filter }})}/`" class="shop-nav__link">{{ filter }}</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+</template>
+
 <script>
-import Shop from '~/components/Shop'
-export default Shop
+import { mapGetters } from 'vuex'
+
+export default {
+  name: 'Shop',
+  layout: 'aside',
+  data () {
+    return {
+      filters: []
+    }
+  },
+  computed: {
+    ...mapGetters(['getFilters'])
+  },
+  created () {
+    this.filters = [...this.getFilters]
+  }
+}
 </script>
+<style lang="scss">
+@import "shop";
+</style>

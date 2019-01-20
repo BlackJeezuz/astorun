@@ -9,7 +9,9 @@ const _72493ac3 = () => interopDefault(import('..\\pages\\news\\index.vue' /* we
 const _4dfe86c0 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages_shop_index" */))
 const _215d660d = () => interopDefault(import('..\\pages\\thanks\\index.vue' /* webpackChunkName: "pages_thanks_index" */))
 const _4bf75792 = () => interopDefault(import('..\\pages\\news\\_id\\index.vue' /* webpackChunkName: "pages_news__id_index" */))
+const _28afe65d = () => interopDefault(import('..\\pages\\shop\\_filter\\index.vue' /* webpackChunkName: "pages_shop__filter_index" */))
 const _14392bf6 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _5a56efc6 = () => interopDefault(import('..\\pages\\_product\\index.vue' /* webpackChunkName: "pages__product_index" */))
 
 Vue.use(Router)
 
@@ -153,6 +155,18 @@ export function createRouter() {
       component: _4bf75792,
       name: "news-id___ua"
     }, {
+      path: "/shop/:filter",
+      component: _28afe65d,
+      name: "shop-filter___ru"
+    }, {
+      path: "/en/shop/:filter",
+      component: _28afe65d,
+      name: "shop-filter___en"
+    }, {
+      path: "/ua/shop/:filter",
+      component: _28afe65d,
+      name: "shop-filter___ua"
+    }, {
       path: "/",
       component: _14392bf6,
       name: "index___ru"
@@ -164,6 +178,18 @@ export function createRouter() {
       path: "/ua/",
       component: _14392bf6,
       name: "index___ua"
+    }, {
+      path: "/:product",
+      component: _5a56efc6,
+      name: "product___ru"
+    }, {
+      path: "/en/:product",
+      component: _5a56efc6,
+      name: "product___en"
+    }, {
+      path: "/ua/:product",
+      component: _5a56efc6,
+      name: "product___ua"
     }],
 
     fallback: false

@@ -1,0 +1,22 @@
+.bascet {
+  .container {
+    @extend %flex-ac;
+    flex-direction: column;
+  }
+}
+
+.bascet-details {
+  @extend %flex;
+  padding: 15px 0 0 0;
+  font-size: 18px;
+  &__field {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__caption {
+    font-weight: bold;
+    color: $main-color;
+  }
+}

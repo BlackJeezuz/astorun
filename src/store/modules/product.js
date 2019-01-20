@@ -1,120 +1,88 @@
+import filters from '~/static/filters.json'
+import categories from '~/static/categories.json'
+import hat from '~/static/hat.json'
+import pants from '~/static/pants.json'
+import sweetshot from '~/static/sweetshot.json'
+
 const state = {
-  products: [{
-    id: 'hat-1',
-    mainImage: 'foto1.jpg',
-    category: 'hat',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'hat-2',
-    mainImage: 'foto1.jpg',
-    category: 'hat',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'hat-3',
-    mainImage: 'foto1.jpg',
-    category: 'hat',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'sweetshot-1',
-    category: 'sweetshot',
-    mainImage: 'foto2.jpg',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'sweetshot-2',
-    category: 'sweetshot',
-    mainImage: 'foto2.jpg',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'sweetshot-3',
-    category: 'sweetshot',
-    mainImage: 'foto2.jpg',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'pants-1',
-    category: 'pants',
-    mainImage: 'foto3.jpg',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'pants-2',
-    category: 'pants',
-    mainImage: 'foto3.jpg',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }, {
-    id: 'pants-3',
-    category: 'pants',
-    mainImage: 'foto3.jpg',
-    images: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'],
-    description: {
-      title: 'Lorem ipsum title',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro.'
-    },
-    isSelected: false
-  }]
+  filters: [],
+  categories: [],
+  products: [],
+  selectedProduct: null
 }
 
 const getters = {
   products: state => {
     return state.products
   },
-  hats: (state, getters) => getters.products.filter(product => product.category === 'hat'),
-  sweetshots: (state, getters) => getters.products.filter(product => product.category === 'sweetshot'),
-  pants: (state, getters) => getters.products.filter(product => product.category === 'pants'),
-  selectedProducts: state => state.products.filter(product => product.isSelected)
+  getProductsByfilter: state => (filter) => {
+    return state.products.filter(product => product.filter === filter)
+  },
+  getProductByID: state => (id) => {
+    const product = state.products.find((item, index) => item.id === id)
+
+    const categoryProducts = state.products.filter(item => item.category === product.category && item.filter === product.filter)
+
+    const productIndex = categoryProducts.indexOf(product)
+    const prevItem = categoryProducts[productIndex - 1]
+    const nextItem = categoryProducts[productIndex + 1]
+    const prevId = prevItem ? prevItem.id : categoryProducts[categoryProducts.length - 1].id
+    const nextId = nextItem ? nextItem.id : categoryProducts[0].id
+
+    return {
+      ...product,
+      prevId,
+      nextId
+    }
+  },
+  getFilters: state => state.filters,
+  getCategories: state => state.categories,
+  getSelectedProduct: state => state.selectedProduct
 }
 
 const mutations = {
-  SELECT_PRODUCT (state, id) {
-    let product = state.products.find(product => product.id === id)
-    product.isSelected = !product.isSelected
+  SELECT_PRODUCT (state, product) {
+    state.selectedProduct = { ...product }
   },
   SET_PRODUCTS (state, products) {
     state.products = products
+  },
+  SET_FILTERS (state, filters) {
+    state.filters = filters
+  },
+  SET_CATEGORIES (state, categories) {
+    state.categories = categories
   }
 }
 const actions = {
-  selectProduct: ({ commit }, id) => {
-    commit('SELECT_PRODUCT', id)
+  selectProduct: ({ commit }, {product, activeSize}) => {
+    console.log(product, activeSize)
+    commit('SELECT_PRODUCT', { ...product, activeSize })
+  },
+  nuxtServerInit ({ commit }, { app })  {
+    commit('SET_FILTERS', filters)
+    commit('SET_PRODUCTS', [...hat, ...pants, ...sweetshot])
+    commit('SET_CATEGORIES', categories)
   }
+  // async nuxtServerInit ({ commit }, { app }) {
+  //   await app.$axios.get('./filters.json', {
+  //     baseUrl: 'http://localhost:3000/static'
+  //   }).then(res => {
+  //     let filters = res.data
+  //     commit('SET_FILTERS', filters)
+  //     return Promise.all(filters.map(filter => app.$axios.get(`./${filter}.json`)))
+  //     .then(res => {
+  //       let products = []
+
+  //       res.map(response => products = [...products, ...response.data])
+        
+  //       commit('SET_PRODUCTS', products)
+  //     })
+  //   })
+  //   await app.$axios.get('./categories.json', {
+  //     baseUrl: 'http://localhost:3000/static'
+  //   }).then(res => commit('SET_CATEGORIES', res.data))
+  // }
 }
 
 export default {
