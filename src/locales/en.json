@@ -21,6 +21,7 @@
     "submit": "Submit"
   },
   "collection": {
+    "title": "Collection",
     "man": "Man",
     "woman": "Woman",
     "kids": "Kids",

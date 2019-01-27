@@ -4,8 +4,13 @@
       <h1 class="main-title">{{ $t('shop.title') }}</h1>
       <nav class="shop-nav">
         <ul class="shop-nav__list">
-          <li v-for="filter in filters" class="shop-nav__item" :key="filter">
-            <nuxt-link :to="`${localePath({ name: 'shop-filter', params: { filter: filter }})}/`" class="shop-nav__link">{{ filter }}</nuxt-link>
+          <li v-for="filter in filters" class="shop-nav__item" :key="filter.name">
+            <nuxt-link
+              :to="`${localePath({ name: 'shop-filter', params: { filter: filter.name }})}/`"
+              class="shop-nav__link"
+            >
+              {{ filter.name }}
+            </nuxt-link>
           </li>
         </ul>
       </nav>

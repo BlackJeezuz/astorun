@@ -12,34 +12,39 @@
 .modal {
   $bdrz: 15px;
   @include cent;
-  min-width: 400px;
-  min-height: 200px;
+  max-width: 300px;
+  width: 90%;
+  min-height: 100px;
   background-color: #fff;
   border-radius: $bdrz;
   transition: all .3s;
   z-index: 11;
 
   &__header {
+    margin: 0;
     padding: 10px 20px;
-    background-color: $first-color;
+    background-color: $main-color;
     color: #fff;
     text-align: center;
     border-radius: $bdrz $bdrz 0 0;
-  }
-  &__title {
-    margin: 0;
   }
 
   &__content {
     padding: 20px;
   }
 
+  &__buttons {
+    text-align: center;
+    button:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
   &__close {
     position: absolute;
-    top: 5px;
-    right: -40px;
-    width: 25px;
-    height: 25px;
+    top: 11px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     transition: transform .3s;
 
@@ -83,28 +88,4 @@
 .modal-enter .modal,
 .modal-leave-active .modal {
   transform: translate(-50%, -50%) scale(1.1);
-}
-
-@media only screen  and (max-width : 460px) {
-  .modal {
-    &--description {
-      .modal {
-        width: 95%;
-        min-width: initial;
-
-        &__close {
-          top: 10px;
-          right: 10px;
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-
-    &--galery {
-      .modal {
-        width: 95%;
-      }
-    }
-  }
 }

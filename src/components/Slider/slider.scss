@@ -1,0 +1,44 @@
+.VueCarousel.slider {
+  .slider {
+    &__arrow {
+      display: block;
+      width: 40px;
+      height: 45px;
+      background-repeat: no-repeat;
+      background-position: center;
+      &--next {
+        background-image: url('~@/assets/images/next.png');
+      }
+      &--prev {
+        background-image: url('~@/assets/images/prev.png');
+      }
+    }
+  }
+}
+
+.slider-wrap {
+  max-width: 100%;
+  width: 300px;
+}
+
+@media only screen  and (max-width : 460px) {
+  .VueCarousel.slider {
+    .VueCarousel-navigation {
+      &-button {
+        transform: translateY(-50%);
+        padding: 0;
+        &:focus {
+          outline: none !important;
+        }
+      }
+
+      &-next {
+        right: 0;
+      }
+
+      &-prev {
+        left: 0;
+      }
+    }
+  }
+}

@@ -1,22 +1,146 @@
 .bascet {
-  .container {
-    @extend %flex-ac;
-    flex-direction: column;
+  &__container {
+    @extend %flex-fs;
+    position: relative;
+    padding-right: 40px;
+    @media only screen  and (max-width : 520px) {
+      flex-wrap: wrap;
+      padding: 0;
+    }
+  }
+  &__item {
+    padding: 20px;
+    border-bottom: 1px solid #000;
+    @media only screen  and (max-width : 767px) {
+      padding: 20px 0;
+    }
+    &:first-child {
+      border-top: 1px solid #000;
+    }
+  }
+
+  &__img {
+    max-width: 200px;
+    @media only screen  and (max-width : 520px) {
+      margin: 0 auto 20px auto;
+    }
+  }
+
+  &__remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 30px;
+    height: 30px;
+
+    &:before,
+    &:after {
+      content: '';
+      @extend %cent;
+      width: 3px;
+      height: 100%;
+      background-color: $main-color;
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
   }
 }
 
+
 .bascet-details {
   @extend %flex;
-  padding: 15px 0 0 0;
+  flex-direction: column;
+  align-self: stretch;
   font-size: 18px;
+  margin-left: 40px;
+  @media only screen  and (max-width : 520px) {
+    margin-left: 0;
+    align-items: center;
+    width: 100%;
+  }
+  &__title {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: $main-color;
+  }
   &__field {
     &:not(:last-child) {
-      margin-right: 20px;
+      margin-bottom: 10px;
     }
   }
 
   &__caption {
     font-weight: bold;
     color: $main-color;
+  }
+}
+
+.bascet-quantity {
+  @extend %flex-ac;
+  &__label {
+    width: 100%;
+    margin-right: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+  &__btn {
+    background-color: $main-color;
+    color: #fff;
+    border-color: $main-color;
+    padding: 0 7px;
+    font-size: 15px;
+  }
+
+  &__input {
+    margin: 0 10px;
+    padding: 0;
+    height: 25px;
+    text-align: center;
+    line-height: 18px;
+    max-width: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    color: $main-color;
+    flex-shrink: 0;
+  }
+}
+
+.bascet-total {
+  text-align: center;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+  color: $main-color;
+}
+
+.bascet-fallback {
+  text-align: center;
+  &__title {
+    margin: 0 0 40px 0;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  &__buttons {
+    @extend %flex-jc;
+
+    a {
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
   }
 }

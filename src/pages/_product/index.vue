@@ -19,7 +19,14 @@
           >
             <span slot="icon" class="dropdown__icon fas fa-chevron-down" />
           </Dropdown>
-          <button @click="handleBuy(product)" class="product__btn">Buy</button>
+          <button v-if="!isProductInBascet" @click="handleBuy" class="product__btn">Купить</button>
+          <nuxt-link
+            v-else
+            :to="`${localePath({ name: 'bascet' })}/`"
+            class="product__btn product__btn--success"
+          >
+            В корзину
+          </nuxt-link>
         </div>
       </div>
       <div class="product__container">
@@ -41,7 +48,12 @@
             <span class="product-nav__icon fas fa-arrow-circle-left" />
             <span>Prev {{ product.filter }}</span>
           </nuxt-link>
-          <nuxt-link :to="`${localePath({ name: 'shop-filter', params: { filter: product.filter }})}/`" class="product-nav__link">Back</nuxt-link>
+          <button
+            @click="$router.back()"
+            class="btn-default product-nav__link"
+          >
+            Back
+          </button>
         </nav>
       </div>
     </div>
@@ -67,7 +79,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getProductByID']),
+    ...mapGetters(['getProductByID', 'getProductFromBascet']),
     dropOptions () {
       return this.product.sizes.map(size => {
         return {
@@ -75,20 +87,27 @@ export default {
           handler: this.optionHandler(size)
         }
       })
+    },
+    isProductInBascet () {
+      return this.getProductFromBascet(this.product.id)
     }
   },
   created () {
-    this.product = this.getProductByID(this.$route.params.product)
+    let routesData = this.$route.params.product.split('-')
+
+    let category = routesData[routesData.length - 1]
+    let id = routesData.filter(item => item !== category).join('-')
+
+    this.product = this.getProductByID(id)
     this.activeSize = this.product.sizes[0]
   },
   methods: {
-    ...mapActions(['selectProduct']),
+    ...mapActions(['addProduct']),
     optionHandler (option) {
       return () => this.activeSize = option
     },
-    handleBuy (product) {
-      this.selectProduct({product, activeSize: this.activeSize})
-      this.$router.push(this.localePath({ name: 'bascet' }))
+    handleBuy () {
+      this.addProduct({...this.product, activeSize: this.activeSize})
     }
   }
 }

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "sweetshot-1",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "summer",
+    "category": "kids",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-2",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "winter",
+    "category": "kids",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-3",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "spring",
+    "category": "kids",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-4",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "summer",
+    "category": "man",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-5",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "winter",
+    "category": "man",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-6",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "spring",
+    "category": "man",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-7",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "summer",
+    "category": "woman",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-8",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "winter",
+    "category": "woman",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "sweetshot-9",
+    "mainImage": "foto2.jpg",
+    "filter": "sweetshot",
+    "collection": "spring",
+    "category": "woman",
+    "images": [
+      "foto2.jpg",
+      "foto2.jpg",
+      "foto2.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  }
+]

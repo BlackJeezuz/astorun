@@ -8,6 +8,7 @@ const _5d10617a = () => interopDefault(import('..\\pages\\contacts\\index.vue' /
 const _72493ac3 = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
 const _4dfe86c0 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages_shop_index" */))
 const _215d660d = () => interopDefault(import('..\\pages\\thanks\\index.vue' /* webpackChunkName: "pages_thanks_index" */))
+const _2ded0268 = () => interopDefault(import('..\\pages\\collection\\_product\\index.vue' /* webpackChunkName: "pages_collection__product_index" */))
 const _4bf75792 = () => interopDefault(import('..\\pages\\news\\_id\\index.vue' /* webpackChunkName: "pages_news__id_index" */))
 const _28afe65d = () => interopDefault(import('..\\pages\\shop\\_filter\\index.vue' /* webpackChunkName: "pages_shop__filter_index" */))
 const _14392bf6 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
@@ -142,6 +143,18 @@ export function createRouter() {
       path: "/ua/thanks",
       component: _215d660d,
       name: "thanks___ua"
+    }, {
+      path: "/collection/:product",
+      component: _2ded0268,
+      name: "collection-product___ru"
+    }, {
+      path: "/en/collection/:product",
+      component: _2ded0268,
+      name: "collection-product___en"
+    }, {
+      path: "/ua/collection/:product",
+      component: _2ded0268,
+      name: "collection-product___ua"
     }, {
       path: "/news/:id",
       component: _4bf75792,

@@ -3,7 +3,7 @@
     <div v-if="isOpened" class="overlay" @click.self="close">
       <div class="modal">
         <slot />
-        <button @click="close" class="btn-default modal__close" :title="$t('buttons.close')" />
+        <button v-if="closeBtn" @click="close" class="btn-default modal__close" :title="$t('buttons.close')" />
       </div>
     </div>
   </transition>
@@ -20,6 +20,10 @@ export default {
     id: {
       type: String,
       default: 'modal'
+    },
+    closeBtn: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

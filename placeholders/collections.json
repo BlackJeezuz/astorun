@@ -1,0 +1,73 @@
+[{
+  "id": "summer",
+  "category": "man",
+  "mainImage": "foto1.jpg",
+  "description": {
+    "title": "Summer collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "summer",
+  "category": "woman",
+  "mainImage": "foto1.jpg",
+  "description": {
+    "title": "Winter collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "summer",
+  "category": "kids",
+  "mainImage": "foto1.jpg",
+  "description": {
+    "title": "Spring collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "winter",
+  "category": "man",
+  "mainImage": "foto2.jpg",
+  "description": {
+    "title": "Winter collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "winter",
+  "category": "woman",
+  "mainImage": "foto2.jpg",
+  "description": {
+    "title": "Winter collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "winter",
+  "category": "kids",
+  "mainImage": "foto2.jpg",
+  "description": {
+    "title": "Winter collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "spring",
+  "category": "man",
+  "mainImage": "foto3.jpg",
+  "description": {
+    "title": "Spring collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "spring",
+  "category": "woman",
+  "mainImage": "foto3.jpg",
+  "description": {
+    "title": "Spring collection",
+    "text": "Lorem collection"
+  }
+}, {
+  "id": "spring",
+  "category": "kids",
+  "mainImage": "foto3.jpg",
+  "description": {
+    "title": "Spring collection",
+    "text": "Lorem collection"
+  }
+}]

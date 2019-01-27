@@ -1,22 +1,7 @@
+import news from '~/static/placeholders/news.json'
+
 const state = {
-  news: [{
-    id: 'awesome-product-is-comming',
-    img: 'foto1.jpg',
-    images: ['foto1.jpg', 'foto2.jpg'],
-    time: '11/06/2008',
-    title: 'Awesome product is comming!',
-    intro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.',
-    content: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.</p>'
-  }, {
-    id: 'awesome-product-2',
-    route: 'products-2-news',
-    img: 'foto2.jpg',
-    images: ['foto1.jpg', 'foto2.jpg'],
-    time: '11/06/2008',
-    title: 'Awesome product is comming!',
-    intro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.',
-    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum cupiditate ducimus amet saepe! Officiis error quas porro non iure soluta ut nisi aut cumque mollitia optio nulla labore, laborum veritatis.'
-  }]
+  news: []
 }
 
 const getters = {
@@ -54,7 +39,21 @@ const getters = {
     }
   }
 }
+
+const mutations = {
+  SET_NEWS (state, news) {
+    state.news = news
+  }
+}
+
+const actions = {
+  nuxtServerInit ({ commit }, { app })  {
+    commit('SET_NEWS', news)
+  }
+}
 export default {
   state,
-  getters
+  getters,
+  mutations,
+  actions
 }

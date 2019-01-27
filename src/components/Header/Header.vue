@@ -31,11 +31,18 @@
           <nuxt-link :to="switchLocalePath('en')" :class="['btn-local', {'is-active': $store.state.i18n.locale === 'en'}]">EN</nuxt-link>
         </div>
       </div>
+
+      <nuxt-link class="header-bascet" :to="`${localePath('bascet')}/`" title="В корзину" >
+        <span class="header-bascet__icon fas fa-shopping-cart" />
+        <span class="header-bascet__number" v-if="bascetLength" >{{ bascetLength }}</span>
+      </nuxt-link>
     </div>
   </header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'SideMenu',
   data () {
@@ -44,11 +51,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['bascetLength']),
     navigation () {
       return [{
-        text: 'links.mainpage',
-        path: 'index'
-      }, {
         text: 'links.shop',
         path: 'shop'
       }, {

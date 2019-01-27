@@ -1,7 +1,9 @@
-const filters = require('./static/filters.json')
-const hat = require('./static/hat.json')
-const pants = require('./static/pants.json')
-const sweetshot = require('./static/sweetshot.json')
+const filters = require('./static/placeholders/filters.json')
+const hat = require('./static/placeholders/hat.json')
+const pants = require('./static/placeholders/pants.json')
+const sweetshot = require('./static/placeholders/sweetshot.json')
+const collections = require('./static/placeholders/collections.json')
+const news = require('./static/placeholders/news.json')
 
 const pkg = require('./package')
 
@@ -49,12 +51,12 @@ module.exports = {
   generate: {
     routes: function () {
       return [
-        ...filters.map(filter => `shop/${filter}`),
-        ...hat.map(item => item.id),
-        ...pants.map(item => item.id),
-        ...sweetshot.map(item => item.id),
-        'news/awesome-product-is-comming',
-        'news/awesome-product-2'
+        ...filters.map(filter => `shop/${filter.name}`),
+        ...hat.map(item => `${item.id}-${item.category}`),
+        ...pants.map(item => `${item.id}-${item.category}`),
+        ...sweetshot.map(item => `${item.id}-${item.category}`),
+        ...collections.map(item => `collection/${item.id}-${item.category}`),
+        ...news.map(item => `news/${item.id}`)
       ]
     }
     // routes: ['news/awesome-product-is-comming', 'news/awesome-product-2']

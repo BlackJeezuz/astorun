@@ -1,0 +1,218 @@
+[
+  {
+    "id": "hat-1",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "category": "kids",
+    "collection": "summer",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-2",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "category": "kids",
+    "collection": "winter",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-3",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "category": "kids",
+    "collection": "spring",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-4",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "collection": "summer",
+    "category": "man",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-5",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "collection": "winter",
+    "category": "man",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-6",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "collection": "spring",
+    "category": "man",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-7",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "collection": "summer",
+    "category": "woman",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-8",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "collection": "winter",
+    "category": "woman",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "hat-9",
+    "mainImage": "foto1.jpg",
+    "filter": "hat",
+    "collection": "spring",
+    "category": "woman",
+    "images": [
+      "foto1.jpg",
+      "foto1.jpg",
+      "foto1.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  }
+]

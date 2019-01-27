@@ -1,0 +1,218 @@
+[
+  {
+    "id": "pants-1",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "summer",
+    "category": "kids",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-2",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "winter",
+    "category": "kids",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-3",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "spring",
+    "category": "kids",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-4",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "summer",
+    "category": "man",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-5",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "winter",
+    "category": "man",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-6",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "spring",
+    "category": "man",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-7",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "summer",
+    "category": "woman",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-8",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "winter",
+    "category": "woman",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  },
+  {
+    "id": "pants-9",
+    "mainImage": "foto3.jpg",
+    "filter": "pants",
+    "collection": "spring",
+    "category": "woman",
+    "images": [
+      "foto3.jpg",
+      "foto3.jpg",
+      "foto3.jpg"
+    ],
+    "description": {
+      "title": "product name",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi molestiae sapiente accusantium ex placeat neque incidunt mollitia cumque ullam, earum, quod, sunt non nobis veritatis repudiandae quas distinctio! Porro."
+    },
+    "sizes": [
+      "XL",
+      "XS",
+      "M",
+      "L"
+    ],
+    "price": "146",
+    "isAvaible": true
+  }
+]

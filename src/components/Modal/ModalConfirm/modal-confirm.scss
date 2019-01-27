@@ -1,0 +1,35 @@
+.modal-confirm {
+  &__btn {
+    padding: 5px 20px;
+    font-weight: 500;
+    font-size: 20px;
+    background-color: transparent;
+    border: 1px solid currentColor;
+    transition: all .2s;
+
+    span {
+      margin-left: 10px;
+    }
+
+    &--success {
+      color: $active-color;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: $active-color;
+        border-color: $active-color;
+      }
+    }
+
+    &--cancel {
+      color: $remove-color;
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: $remove-color;
+        border-color: $remove-color;
+      }
+    }
+  }
+}

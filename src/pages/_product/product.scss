@@ -5,8 +5,6 @@
     padding: 0 20px;
   }
   &__slider {
-    max-width: 300px;
-    width: 100%;
     margin: 0 auto;
   }
 
@@ -50,6 +48,16 @@
     &:focus {
       border-color: $main-color;
     }
+
+    &--success {
+      background-color: $active-color;
+      border-color: $active-color;
+
+      &:hover,
+      &:focus {
+        border-color: $active-color;
+      }
+    }
   }
 
   &__price {
@@ -74,6 +82,7 @@
   &__link {
     position: relative;
     display: block;
+    width: 100%;
     padding: 10px 45px;
     max-width: 300px;
     margin: 0 auto;

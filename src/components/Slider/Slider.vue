@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="slider-wrap">
     <no-ssr>
-      <carousel
+      <Carousel
         class="slider"
         :perPage="slidesToShow"
         :navigationEnabled="true"
@@ -11,7 +11,7 @@
         :loop="true"
       >
         <slot />
-      </carousel>
+      </Carousel>
     </no-ssr>
   </div>
 </template>
