@@ -12,10 +12,10 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_pluginseo_0dce0592 from 'nuxt_plugin_pluginseo_0dce0592' // Source: ./nuxt-i18n\\plugin.seo.js
-import nuxt_plugin_pluginrouting_ffc15eee from 'nuxt_plugin_pluginrouting_ffc15eee' // Source: ./nuxt-i18n\\plugin.routing.js
-import nuxt_plugin_pluginmain_67818f86 from 'nuxt_plugin_pluginmain_67818f86' // Source: ./nuxt-i18n\\plugin.main.js
-import nuxt_plugin_axios_7ca689b0 from 'nuxt_plugin_axios_7ca689b0' // Source: ./axios.js
+import nuxt_plugin_pluginseo_05205531 from 'nuxt_plugin_pluginseo_05205531' // Source: ./nuxt-i18n\\plugin.seo.js
+import nuxt_plugin_pluginrouting_3f1a8eb0 from 'nuxt_plugin_pluginrouting_3f1a8eb0' // Source: ./nuxt-i18n\\plugin.routing.js
+import nuxt_plugin_pluginmain_5a7933c7 from 'nuxt_plugin_pluginmain_5a7933c7' // Source: ./nuxt-i18n\\plugin.main.js
+import nuxt_plugin_axios_05c8cff1 from 'nuxt_plugin_axios_05c8cff1' // Source: ./axios.js
 import nuxt_plugin_vuecarousel_6c010c3d from 'nuxt_plugin_vuecarousel_6c010c3d' // Source: ..\\plugins\\vue-carousel (ssr: false)
 import nuxt_plugin_veevalidate_6e5ad03a from 'nuxt_plugin_veevalidate_6e5ad03a' // Source: ..\\plugins\\vee-validate (ssr: false)
 
@@ -156,10 +156,10 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_pluginseo_0dce0592 === 'function') await nuxt_plugin_pluginseo_0dce0592(app.context, inject)
-  if (typeof nuxt_plugin_pluginrouting_ffc15eee === 'function') await nuxt_plugin_pluginrouting_ffc15eee(app.context, inject)
-  if (typeof nuxt_plugin_pluginmain_67818f86 === 'function') await nuxt_plugin_pluginmain_67818f86(app.context, inject)
-  if (typeof nuxt_plugin_axios_7ca689b0 === 'function') await nuxt_plugin_axios_7ca689b0(app.context, inject)
+  if (typeof nuxt_plugin_pluginseo_05205531 === 'function') await nuxt_plugin_pluginseo_05205531(app.context, inject)
+  if (typeof nuxt_plugin_pluginrouting_3f1a8eb0 === 'function') await nuxt_plugin_pluginrouting_3f1a8eb0(app.context, inject)
+  if (typeof nuxt_plugin_pluginmain_5a7933c7 === 'function') await nuxt_plugin_pluginmain_5a7933c7(app.context, inject)
+  if (typeof nuxt_plugin_axios_05c8cff1 === 'function') await nuxt_plugin_axios_05c8cff1(app.context, inject)
 
   if (process.client) {
     if (typeof nuxt_plugin_vuecarousel_6c010c3d === 'function') await nuxt_plugin_vuecarousel_6c010c3d(app.context, inject)

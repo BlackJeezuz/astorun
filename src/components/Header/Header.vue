@@ -34,7 +34,9 @@
 
       <nuxt-link class="header-bascet" :to="`${localePath('bascet')}/`" title="В корзину" >
         <span class="header-bascet__icon fas fa-shopping-cart" />
-        <span class="header-bascet__number" v-if="bascetLength" >{{ bascetLength }}</span>
+        <transition name="bounce">
+          <span :key="`numb-${bascetLength}`" class="header-bascet__number" v-if="bascetLength" >{{ bascetLength }}</span>
+        </transition>
       </nuxt-link>
     </div>
   </header>

@@ -34,8 +34,8 @@ const getters = {
 
     return {
       ...product,
-      prevId,
-      nextId
+      prevProduct: prevItem,
+      nextProduct: nextItem
     }
   },
   getFilters: state => state.filters,
