@@ -10,7 +10,6 @@
         type="button"
         :class="['btn-menu btn-default', {'is-active': isMenuActive}]"
       >
-        <span class="btn-menu__text">{{ isMenuActive ? $t('buttons.close') : $t('buttons.menu') }}</span>
         <span class="btn-menu__item btn-menu__item--top" />
         <span class="btn-menu__item btn-menu__item--mid" />
         <span class="btn-menu__item btn-menu__item--bot" />
