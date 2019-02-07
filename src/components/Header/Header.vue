@@ -70,23 +70,30 @@ export default {
       }]
     }
   },
+  watch: {
+    isMenuActive (isMenuActive) {
+      if (isMenuActive) {
+        document.body.classList.add('scroll-disable')
+      } else {
+        document.body.classList.remove('scroll-disable')
+      }
+    }
+  },
   mounted () {
+    document.body.classList.remove('scroll-disable')
     window.addEventListener('scroll', this.hideHeader)
   },
-  destroyed () {
+  beforeDestroy () {
     window.removeEventListener('scroll', this.hideHeader)
+    document.body.classList.remove('scroll-disable')
   },
   methods: {
     handleNavClick (target) {
       if (!target.classList.contains('navigation__link') && !target.classList.contains('navigation__text')) return
       this.isMenuActive = !this.isMenuActive
+      document.body.classList.remove('scroll-disable')
     },
     handleMenu () {
-      if (!this.isMenuActive) {
-        document.body.classList.add('scroll-disable')
-      } else {
-        document.body.classList.remove('scroll-disable')
-      }
       this.isMenuActive = !this.isMenuActive
     },
     hideHeader () {
