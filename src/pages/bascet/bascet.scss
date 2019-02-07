@@ -2,7 +2,6 @@
   &__container {
     @extend %flex-fs;
     position: relative;
-    padding-right: 40px;
     @media only screen  and (max-width : 520px) {
       flex-wrap: wrap;
       padding: 0;
@@ -76,6 +75,9 @@
   &__field {
     &:not(:last-child) {
       margin-bottom: 10px;
+      @media only screen  and (max-width : 767px) {
+        margin-bottom: 20px;
+      }
     }
   }
 

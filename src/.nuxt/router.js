@@ -2,17 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _0d2b69bf = () => interopDefault(import('..\\pages\\bascet\\index.vue' /* webpackChunkName: "pages_bascet_index" */))
-const _0c27e95f = () => interopDefault(import('..\\pages\\collection\\index.vue' /* webpackChunkName: "pages_collection_index" */))
-const _16655d4a = () => interopDefault(import('..\\pages\\contacts\\index.vue' /* webpackChunkName: "pages_contacts_index" */))
-const _d076376c = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
-const _737a3047 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages_shop_index" */))
-const _52d66c58 = () => interopDefault(import('..\\pages\\thanks\\index.vue' /* webpackChunkName: "pages_thanks_index" */))
-const _aaea8422 = () => interopDefault(import('..\\pages\\collection\\_product\\index.vue' /* webpackChunkName: "pages_collection__product_index" */))
-const _32c88710 = () => interopDefault(import('..\\pages\\news\\_id\\index.vue' /* webpackChunkName: "pages_news__id_index" */))
-const _4bfd04b6 = () => interopDefault(import('..\\pages\\shop\\_filter\\index.vue' /* webpackChunkName: "pages_shop__filter_index" */))
-const _780f7286 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
-const _c1770466 = () => interopDefault(import('..\\pages\\_product\\index.vue' /* webpackChunkName: "pages__product_index" */))
+const _0eef5412 = () => interopDefault(import('..\\pages\\bascet\\index.vue' /* webpackChunkName: "pages_bascet_index" */))
+const _2b780cd2 = () => interopDefault(import('..\\pages\\collection\\index.vue' /* webpackChunkName: "pages_collection_index" */))
+const _c38fc8fc = () => interopDefault(import('..\\pages\\contacts\\index.vue' /* webpackChunkName: "pages_contacts_index" */))
+const _014102fc = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
+const _49d66b02 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages_shop_index" */))
+const _7c1c93e8 = () => interopDefault(import('..\\pages\\thanks\\index.vue' /* webpackChunkName: "pages_thanks_index" */))
+const _72d9e827 = () => interopDefault(import('..\\pages\\collection\\_product\\index.vue' /* webpackChunkName: "pages_collection__product_index" */))
+const _b564e050 = () => interopDefault(import('..\\pages\\news\\_id\\index.vue' /* webpackChunkName: "pages_news__id_index" */))
+const _6fc0697e = () => interopDefault(import('..\\pages\\shop\\_filter\\index.vue' /* webpackChunkName: "pages_shop__filter_index" */))
+const _3140eaf5 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _27173c05 = () => interopDefault(import('..\\pages\\_product\\index.vue' /* webpackChunkName: "pages__product_index" */))
 
 Vue.use(Router)
 
@@ -66,142 +66,142 @@ const scrollBehavior = function (to, from, savedPosition) {
 export function createRouter() {
   return new Router({
     mode: 'history',
-    base: '/',
+    base: '/astorun/',
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
 
     routes: [{
       path: "/bascet",
-      component: _0d2b69bf,
+      component: _0eef5412,
       name: "bascet___ru"
     }, {
       path: "/en/bascet",
-      component: _0d2b69bf,
+      component: _0eef5412,
       name: "bascet___en"
     }, {
       path: "/ua/bascet",
-      component: _0d2b69bf,
+      component: _0eef5412,
       name: "bascet___ua"
     }, {
       path: "/collection",
-      component: _0c27e95f,
+      component: _2b780cd2,
       name: "collection___ru"
     }, {
       path: "/en/collection",
-      component: _0c27e95f,
+      component: _2b780cd2,
       name: "collection___en"
     }, {
       path: "/ua/collection",
-      component: _0c27e95f,
+      component: _2b780cd2,
       name: "collection___ua"
     }, {
       path: "/contacts",
-      component: _16655d4a,
+      component: _c38fc8fc,
       name: "contacts___ru"
     }, {
       path: "/en/contacts",
-      component: _16655d4a,
+      component: _c38fc8fc,
       name: "contacts___en"
     }, {
       path: "/ua/contacts",
-      component: _16655d4a,
+      component: _c38fc8fc,
       name: "contacts___ua"
     }, {
       path: "/news",
-      component: _d076376c,
+      component: _014102fc,
       name: "news___ru"
     }, {
       path: "/en/news",
-      component: _d076376c,
+      component: _014102fc,
       name: "news___en"
     }, {
       path: "/ua/news",
-      component: _d076376c,
+      component: _014102fc,
       name: "news___ua"
     }, {
       path: "/shop",
-      component: _737a3047,
+      component: _49d66b02,
       name: "shop___ru"
     }, {
       path: "/en/shop",
-      component: _737a3047,
+      component: _49d66b02,
       name: "shop___en"
     }, {
       path: "/ua/shop",
-      component: _737a3047,
+      component: _49d66b02,
       name: "shop___ua"
     }, {
       path: "/thanks",
-      component: _52d66c58,
+      component: _7c1c93e8,
       name: "thanks___ru"
     }, {
       path: "/en/thanks",
-      component: _52d66c58,
+      component: _7c1c93e8,
       name: "thanks___en"
     }, {
       path: "/ua/thanks",
-      component: _52d66c58,
+      component: _7c1c93e8,
       name: "thanks___ua"
     }, {
       path: "/collection/:product",
-      component: _aaea8422,
+      component: _72d9e827,
       name: "collection-product___ru"
     }, {
       path: "/en/collection/:product",
-      component: _aaea8422,
+      component: _72d9e827,
       name: "collection-product___en"
     }, {
       path: "/ua/collection/:product",
-      component: _aaea8422,
+      component: _72d9e827,
       name: "collection-product___ua"
     }, {
       path: "/news/:id",
-      component: _32c88710,
+      component: _b564e050,
       name: "news-id___ru"
     }, {
       path: "/en/news/:id",
-      component: _32c88710,
+      component: _b564e050,
       name: "news-id___en"
     }, {
       path: "/ua/news/:id",
-      component: _32c88710,
+      component: _b564e050,
       name: "news-id___ua"
     }, {
       path: "/shop/:filter",
-      component: _4bfd04b6,
+      component: _6fc0697e,
       name: "shop-filter___ru"
     }, {
       path: "/en/shop/:filter",
-      component: _4bfd04b6,
+      component: _6fc0697e,
       name: "shop-filter___en"
     }, {
       path: "/ua/shop/:filter",
-      component: _4bfd04b6,
+      component: _6fc0697e,
       name: "shop-filter___ua"
     }, {
       path: "/",
-      component: _780f7286,
+      component: _3140eaf5,
       name: "index___ru"
     }, {
       path: "/en/",
-      component: _780f7286,
+      component: _3140eaf5,
       name: "index___en"
     }, {
       path: "/ua/",
-      component: _780f7286,
+      component: _3140eaf5,
       name: "index___ua"
     }, {
       path: "/:product",
-      component: _c1770466,
+      component: _27173c05,
       name: "product___ru"
     }, {
       path: "/en/:product",
-      component: _c1770466,
+      component: _27173c05,
       name: "product___en"
     }, {
       path: "/ua/:product",
-      component: _c1770466,
+      component: _27173c05,
       name: "product___ua"
     }],
 

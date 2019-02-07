@@ -5,40 +5,39 @@
       <template v-if="bascet.length">
         <div class="bascet">
           <ul class="bascet__list">
-            <li
-              v-for="product in bascet"
-              :key="product.id"
-              class="bascet__item"
-            >
+            <li v-for="product in bascet" :key="product.id" class="bascet__item">
               <div class="bascet__container">
-                <img class="bascet__img" :src="require(`~/assets/images/${product.mainImage}`)" alt="product image">
+                <img
+                  class="bascet__img"
+                  :src="require(`~/assets/images/${product.mainImage}`)"
+                  alt="product image"
+                >
                 <div class="bascet-details">
                   <h2 class="bascet-details__title">{{ product.description.title }}</h2>
                   <div class="bascet-details__field">
-                    Size: <span class="bascet-details__caption">{{ product.activeSize }}</span>
+                    Size:
+                    <span class="bascet-details__caption">{{ product.activeSize }}</span>
                   </div>
                   <div class="bascet-details__field">
-                    Price: <span class="bascet-details__caption">{{ product.price*product.quantity }}$</span>
+                    Price:
+                    <span
+                      class="bascet-details__caption"
+                    >{{ product.price*product.quantity }}$</span>
                   </div>
                   <div class="bascet-details__field bascet-quantity">
                     <label :for="product.id" class="bascet-quantity__label">Quantity:</label>
-                    <button
-                      class="bascet-quantity__btn"
-                      @click="handleQuantity(product)"
-                    >
+                    <button class="bascet-quantity__btn" @click="handleQuantity(product)">
                       <span class="fas fa-chevron-left"/>
                     </button>
                     <input
-                      type="tel" class="bascet-quantity__input"
+                      type="tel"
+                      class="bascet-quantity__input"
                       :value="product.quantity"
                       @change="handleChange($event, product)"
                       :id="product.id"
                     >
-                    <button
-                      class="bascet-quantity__btn"
-                      @click="handleQuantity(product, true)"
-                    >
-                      <span class="fas fa-chevron-right" />
+                    <button class="bascet-quantity__btn" @click="handleQuantity(product, true)">
+                      <span class="fas fa-chevron-right"/>
                     </button>
                   </div>
                 </div>
@@ -51,7 +50,7 @@
             </li>
           </ul>
           <div class="bascet-total">
-            <span class="bascet-total__caption">Total: </span>
+            <span class="bascet-total__caption">Total:</span>
             <span class="bascet-total__sum">{{ totalSum }}$</span>
           </div>
         </div>
@@ -60,97 +59,88 @@
       <div v-else class="bascet-fallback">
         <h2 class="bascet-fallback__title">В вашей корзине пока нет товаров!</h2>
         <div class="bascet-fallback__buttons">
-          <nuxt-link
-            class="btn-main btn-main--danger"
-            :to="`${localePath('shop')}/`"
-          >
-            В магазин <span class="fas fa-chevron-right" />
+          <nuxt-link class="btn-main btn-main--danger" :to="`${localePath('shop')}/`">
+            В магазин
+            <span class="fas fa-chevron-right"/>
           </nuxt-link>
-          <nuxt-link
-            class="btn-main btn-main--danger"
-            :to="`${localePath('collection')}/`"
-          >
-            Коллекции <span class="fas fa-chevron-right" />
+          <nuxt-link class="btn-main btn-main--danger" :to="`${localePath('collection')}/`">
+            Коллекции
+            <span class="fas fa-chevron-right"/>
           </nuxt-link>
         </div>
       </div>
       <ul class="social-list">
         <li class="social-list__item">
           <a href="#" class="social-list__link">
-            <span class="fab fa-vk" />
+            <span class="fab fa-facebook-square"/>
           </a>
         </li>
         <li class="social-list__item">
           <a href="#" class="social-list__link">
-            <span class="fab fa-facebook-square" />
+            <span class="fab fa-instagram"/>
           </a>
         </li>
         <li class="social-list__item">
           <a href="#" class="social-list__link">
-            <span class="fab fa-instagram" />
-          </a>
-        </li>
-        <li class="social-list__item">
-          <a href="#" class="social-list__link">
-            <span class="fab youtube" />
+            <span class="fab fa-youtube"/>
           </a>
         </li>
       </ul>
     </div>
-    <ModalConfirm
-      :removeId="removeId"
-      @close="removeId = null"
-    />
+    <ModalConfirm :removeId="removeId" @close="removeId = null"/>
   </section>
 </template>
 
 <script>
-import MainForm from '~/components/MainForm'
-import { mapGetters, mapActions } from 'vuex'
-import ModalConfirm from '~/components/Modal/ModalConfirm'
+import MainForm from "~/components/MainForm";
+import { mapGetters, mapActions } from "vuex";
+import ModalConfirm from "~/components/Modal/ModalConfirm";
 
 export default {
-  name: 'Bascet',
-  layout: 'aside',
+  name: "Bascet",
+  layout: "aside",
   components: {
     MainForm,
     ModalConfirm
   },
-  data () {
+  data() {
     return {
       bascet: [],
       removeId: null
-    }
+    };
   },
   computed: {
-    ...mapGetters(['getBascet']),
-    totalSum () {
-      return this.bascet.reduce((sum, product) => sum + (product.quantity * product.price), 0)
+    ...mapGetters(["getBascet"]),
+    totalSum() {
+      return this.bascet.reduce(
+        (sum, product) => sum + product.quantity * product.price,
+        0
+      );
     }
   },
-  created () {
-    this.bascet = this.getBascet
-    if (!this.bascet) return this.$router.push('shop')
+  created() {
+    this.bascet = this.getBascet;
+    if (!this.bascet) return this.$router.push("shop");
   },
   methods: {
-    submitHandler (params) {
-      this.$router.push(this.localePath({ name: 'thanks' }))
+    submitHandler(params) {
+      this.$router.push(this.localePath({ name: "thanks" }));
     },
-    handleQuantity (product, isIncrement) {
-      if (isIncrement) ++product.quantity
+    handleQuantity(product, isIncrement) {
+      if (isIncrement) ++product.quantity;
       else {
-        if (product.quantity === 1) return
-        --product.quantity
+        if (product.quantity === 1) return;
+        --product.quantity;
       }
     },
     handleChange(e, product) {
-      let value = e.target.value
+      let value = e.target.value;
 
-      if (!+value) e.target.value = product.quantity
-      product.quantity = value
+      if (!+value) e.target.value = product.quantity;
+      product.quantity = value;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

@@ -1,12 +1,12 @@
 <template>
-  <header class="header">
+  <header class="header" ref="header">
     <div class="container header__container">
       <nuxt-link :to="localePath('index')" class="logo">
         <img class="logo__img" src="~assets/images/logo1.png" alt="astorun">
       </nuxt-link>
 
       <button
-        @click="isMenuActive = !isMenuActive"
+        @click="handleMenu"
         type="button"
         :class="['btn-menu btn-default', {'is-active': isMenuActive}]"
       >
@@ -48,7 +48,8 @@ export default {
   name: 'SideMenu',
   data () {
     return {
-      isMenuActive: false
+      isMenuActive: false,
+      scrollPos: 0
     }
   },
   computed: {
@@ -69,10 +70,29 @@ export default {
       }]
     }
   },
+  mounted () {
+    window.addEventListener('scroll', this.hideHeader)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.hideHeader)
+  },
   methods: {
     handleNavClick (target) {
       if (!target.classList.contains('navigation__link') && !target.classList.contains('navigation__text')) return
       this.isMenuActive = !this.isMenuActive
+    },
+    handleMenu () {
+      if (!this.isMenuActive) {
+        document.body.classList.add('scroll-disable')
+      } else {
+        document.body.classList.remove('scroll-disable')
+      }
+      this.isMenuActive = !this.isMenuActive
+    },
+    hideHeader () {
+      if ((document.body.getBoundingClientRect()).top > this.scrollPos) this.$refs.header.classList.remove('is-hidden')
+	    else this.$refs.header.classList.add('is-hidden')
+	    this.scrollPos = (document.body.getBoundingClientRect()).top
     }
   }
 }
