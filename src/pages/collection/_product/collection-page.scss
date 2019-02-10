@@ -12,4 +12,22 @@
     right: 10px;
     z-index: 2;
   }
+  .checkbox {
+    &__input:checked + label::before {
+      background-color: rgba(green, .8);
+      border-color: rgba(green, .8);
+    }
+
+    &__label {
+      &:before {
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+        color: #fff;
+        line-height: 25px;
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+  }
 }

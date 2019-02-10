@@ -1,0 +1,21 @@
+.social-list {
+  @extend %flex-jc;
+  margin: 35px 0 20px 0;
+  &__item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    color: $default-color;
+    font-size: 25px;
+    transition: color .3s, transform .2s;
+
+    &:hover {
+      color: $main-color;
+      transform: scale(1.3)
+    }
+  }
+}

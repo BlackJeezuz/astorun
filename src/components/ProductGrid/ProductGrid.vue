@@ -2,7 +2,7 @@
   <div class="products">
     <ul class="filters">
       <li v-for="filter in filters" :key="filter" class="filters__item">
-        <button @click="handleFilter(filter)" :class="['filters__btn', { 'is-active': activeFilter === filter}]">{{ filter }}</button>
+        <button @click="handleFilter(filter)" :class="['filters__btn', { 'is-active': activeFilter === filter}]">{{ $t(`categories.${filter}`) }}</button>
       </li>
     </ul>
     <transition-group

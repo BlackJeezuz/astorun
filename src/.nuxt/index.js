@@ -15,9 +15,11 @@ import { createStore } from './store.js'
 import nuxt_plugin_pluginseo_9341b61e from 'nuxt_plugin_pluginseo_9341b61e' // Source: ./nuxt-i18n\\plugin.seo.js
 import nuxt_plugin_pluginrouting_3243a868 from 'nuxt_plugin_pluginrouting_3243a868' // Source: ./nuxt-i18n\\plugin.routing.js
 import nuxt_plugin_pluginmain_5dd747f2 from 'nuxt_plugin_pluginmain_5dd747f2' // Source: ./nuxt-i18n\\plugin.main.js
+import nuxt_plugin_plugin_3624055a from 'nuxt_plugin_plugin_3624055a' // Source: ./storage\\plugin.js
 import nuxt_plugin_axios_1e3c7831 from 'nuxt_plugin_axios_1e3c7831' // Source: ./axios.js
 import nuxt_plugin_vuecarousel_6c010c3d from 'nuxt_plugin_vuecarousel_6c010c3d' // Source: ..\\plugins\\vue-carousel (ssr: false)
 import nuxt_plugin_veevalidate_6e5ad03a from 'nuxt_plugin_veevalidate_6e5ad03a' // Source: ..\\plugins\\vee-validate (ssr: false)
+import nuxt_plugin_persistence_2f9253ee from 'nuxt_plugin_persistence_2f9253ee' // Source: ..\\plugins\\persistence.js (ssr: false)
 
 // Component: <no-ssr>
 Vue.component(NoSSR.name, NoSSR)
@@ -159,11 +161,13 @@ async function createApp(ssrContext) {
   if (typeof nuxt_plugin_pluginseo_9341b61e === 'function') await nuxt_plugin_pluginseo_9341b61e(app.context, inject)
   if (typeof nuxt_plugin_pluginrouting_3243a868 === 'function') await nuxt_plugin_pluginrouting_3243a868(app.context, inject)
   if (typeof nuxt_plugin_pluginmain_5dd747f2 === 'function') await nuxt_plugin_pluginmain_5dd747f2(app.context, inject)
+  if (typeof nuxt_plugin_plugin_3624055a === 'function') await nuxt_plugin_plugin_3624055a(app.context, inject)
   if (typeof nuxt_plugin_axios_1e3c7831 === 'function') await nuxt_plugin_axios_1e3c7831(app.context, inject)
 
   if (process.client) {
     if (typeof nuxt_plugin_vuecarousel_6c010c3d === 'function') await nuxt_plugin_vuecarousel_6c010c3d(app.context, inject)
     if (typeof nuxt_plugin_veevalidate_6e5ad03a === 'function') await nuxt_plugin_veevalidate_6e5ad03a(app.context, inject)
+    if (typeof nuxt_plugin_persistence_2f9253ee === 'function') await nuxt_plugin_persistence_2f9253ee(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

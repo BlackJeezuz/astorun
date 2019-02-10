@@ -9,7 +9,7 @@
               :to="`${localePath({ name: 'shop-filter', params: { filter: filter.name }})}/`"
               class="shop-nav__link"
             >
-              {{ filter.name }}
+              {{ $t(`filters.${filter.name}`) }}
             </nuxt-link>
           </li>
         </ul>

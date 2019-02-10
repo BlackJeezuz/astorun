@@ -15,12 +15,22 @@ const mutations = {
   ADD_PRODUCT (state, product) {
     product.quantity = 1
     state.bascet.push(product)
+  },
+  SET_BASCET (state, bascet) {
+    state.bascet = bascet
   }
 }
 
 const actions = {
   removeProduct: ({ commit }, id) => commit('REMOVE_PRODUCT', id),
-  addProduct: ({ commit }, product) => commit('ADD_PRODUCT', product)
+  addProduct: ({ commit }, product) => commit('ADD_PRODUCT', product),
+  nuxtServerInit ({ commit }, { app }) {
+    let bascet = app.$storage.getCookie('bascet')
+
+    if (bascet) {
+      commit('SET_BASCET', bascet)
+    }
+  }
 }
 
 const getters = {

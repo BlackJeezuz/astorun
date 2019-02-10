@@ -6,35 +6,42 @@
         <ul class="contacts">
           <li class="contacts__item">
             <div class="contacts__caption">{{ $t('contacts.phone') }}</div>
-            <a href="#" class="contacts__link"><i class="contacts__icon fas fa-phone" />+380962790520</a>
+            <a href="tel:+380962790520" class="contacts__link"><span class="contacts__icon fas fa-phone" />+380962790520</a>
           </li>
           <li class="contacts__item">
             <div class="contacts__caption">{{ $t('contacts.mail') }}</div>
-            <a href="#" class="contacts__link"><i class="contacts__icon fas fa-envelope" />ruslan201010@gmail.com</a>
+            <a href="mailto:astorun@mail.co" class="contacts__link"><span class="contacts__icon fas fa-envelope" />astorun@mail.co</a>
           </li>
           <li class="contacts__item">
             <div class="contacts__caption">{{ $t('contacts.telegram') }}</div>
-            <a href="#" class="contacts__link"><i class="contacts__icon fab fa-telegram-plane" />@BlackJeezuz</a>
+            <a target="_blank" href="https://t.me/astorun" class="contacts__link"><span class="contacts__icon fab fa-telegram-plane" />@astorun</a>
           </li>
           <li class="contacts__item">
-            <div class="contacts__caption">{{ $t('contacts.adress') }}</div>
-            <a href="#" class="contacts__link"><i class="contacts__icon fas fa-map-marker-alt" />{{ $t('contacts.place') }}</a>
+            <div class="contacts__caption">{{ $t('contacts.viber') }}</div>
+            <a href="viber://chat?number=+380962790520" class="contacts__link"><span class="contacts__icon fab fa-viber" />+380962790520</a>
+          </li>
+          <li class="contacts__item">
+            <div class="contacts__caption">{{ $t('contacts.messanger') }}</div>
+            <a href="https://m.me/astorun" target="_blank" class="contacts__link"><span class="contacts__icon fab fa-facebook-messenger" />astorun</a>
           </li>
         </ul>
-        <main-form class="form--contacts" :reqFields="['name', 'email', 'message']" />
+        <MainForm class="form--contacts" :reqFields="['name', 'email', 'message']" />
       </div>
+      <SocialList />
     </div>
   </section>
 </template>
 
 <script>
 import MainForm from '~/components/MainForm'
+import SocialList from '~/components/SocialList'
 
 export default {
   name: 'Contacts',
   layout: 'aside',
   components: {
-    MainForm
+    MainForm,
+    SocialList
   },
   data () {
     return {

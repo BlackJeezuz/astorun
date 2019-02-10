@@ -1,5 +1,6 @@
 <template>
   <form @submit.prevent="submitHandle" class="form">
+    <h3 v-if="title" class="form__title">{{ title }}</h3>
     <field
       v-for="field in fieldsArray"
       :key="field.name"
@@ -10,6 +11,11 @@
       v-model="field.value"
       @blur="handleValidation"
     >{{ field.placeholder }}</field>
+    <Checkbox
+      v-if="checkbox"
+      v-model="agree"
+      class="form__checkbox"
+    >{{ $t("form.iagree") }} <a class="link" href="#">{{ $t("form.agreement") }}</a></Checkbox>
     <div class="btn-group">
       <button v-for="button in buttons" :key="button.text" class="btn-main btn-main--danger" @click="button.handler">{{ button.text }}</button>
       <button class="btn-main btn-main--danger" type="submit" ref="submitBtn">{{ $t('buttons.submit') }}</button>
@@ -19,11 +25,13 @@
 
 <script>
 import Field from '~/components/Field'
+import Checkbox from '~/components/Checkbox'
 
 export default {
   name: 'MainForm',
   components: {
-    Field
+    Field,
+    Checkbox
   },
   props: {
     reqFields: {
@@ -33,6 +41,14 @@ export default {
     buttons: {
       type: Array,
       default: () => []
+    },
+    title: {
+      type: String,
+      default: null
+    },
+    checkbox: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -74,7 +90,8 @@ export default {
           icon: 'far fa-comments',
           isValid: false
         }
-      }
+      },
+      agree: false
     }
   },
   computed: {
@@ -84,8 +101,13 @@ export default {
   },
   methods: {
     submitHandle () {
-      if (this.fieldsArray.some(field => !field.isValid)) {
+      if (this.fieldsArray.some(field => !field.isValid) || !this.agree) {
         this.$refs.submitBtn.classList.add('shake-anim')
+
+        if(this.$refs.submitBtn.classList.contains('shake-anim')) {
+          setTimeout(() => this.$refs.submitBtn.classList.remove('shake-anim'), 1000)
+        }
+
         return
       }
       this.$emit('submit', this.formFields)

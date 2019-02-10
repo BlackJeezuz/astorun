@@ -5,7 +5,11 @@ import { interopDefault } from './utils'
 const _0eef5412 = () => interopDefault(import('..\\pages\\bascet\\index.vue' /* webpackChunkName: "pages_bascet_index" */))
 const _2b780cd2 = () => interopDefault(import('..\\pages\\collection\\index.vue' /* webpackChunkName: "pages_collection_index" */))
 const _c38fc8fc = () => interopDefault(import('..\\pages\\contacts\\index.vue' /* webpackChunkName: "pages_contacts_index" */))
+const _b6aaaf2e = () => interopDefault(import('..\\pages\\faq\\index.vue' /* webpackChunkName: "pages_faq_index" */))
 const _014102fc = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
+const _36b7b023 = () => interopDefault(import('..\\pages\\offer\\index.vue' /* webpackChunkName: "pages_offer_index" */))
+const _47754a8a = () => interopDefault(import('..\\pages\\partnership\\index.vue' /* webpackChunkName: "pages_partnership_index" */))
+const _722ce2a8 = () => interopDefault(import('..\\pages\\rules\\index.vue' /* webpackChunkName: "pages_rules_index" */))
 const _49d66b02 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages_shop_index" */))
 const _7c1c93e8 = () => interopDefault(import('..\\pages\\thanks\\index.vue' /* webpackChunkName: "pages_thanks_index" */))
 const _72d9e827 = () => interopDefault(import('..\\pages\\collection\\_product\\index.vue' /* webpackChunkName: "pages_collection__product_index" */))
@@ -108,6 +112,18 @@ export function createRouter() {
       component: _c38fc8fc,
       name: "contacts___ua"
     }, {
+      path: "/faq",
+      component: _b6aaaf2e,
+      name: "faq___ru"
+    }, {
+      path: "/en/faq",
+      component: _b6aaaf2e,
+      name: "faq___en"
+    }, {
+      path: "/ua/faq",
+      component: _b6aaaf2e,
+      name: "faq___ua"
+    }, {
       path: "/news",
       component: _014102fc,
       name: "news___ru"
@@ -119,6 +135,42 @@ export function createRouter() {
       path: "/ua/news",
       component: _014102fc,
       name: "news___ua"
+    }, {
+      path: "/offer",
+      component: _36b7b023,
+      name: "offer___ru"
+    }, {
+      path: "/en/offer",
+      component: _36b7b023,
+      name: "offer___en"
+    }, {
+      path: "/ua/offer",
+      component: _36b7b023,
+      name: "offer___ua"
+    }, {
+      path: "/partnership",
+      component: _47754a8a,
+      name: "partnership___ru"
+    }, {
+      path: "/en/partnership",
+      component: _47754a8a,
+      name: "partnership___en"
+    }, {
+      path: "/ua/partnership",
+      component: _47754a8a,
+      name: "partnership___ua"
+    }, {
+      path: "/rules",
+      component: _722ce2a8,
+      name: "rules___ru"
+    }, {
+      path: "/en/rules",
+      component: _722ce2a8,
+      name: "rules___en"
+    }, {
+      path: "/ua/rules",
+      component: _722ce2a8,
+      name: "rules___ua"
     }, {
       path: "/shop",
       component: _49d66b02,

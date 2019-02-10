@@ -9,7 +9,7 @@ import _6f6c098b from '..\\layouts\\default.vue'
 const layouts = { "_aside": _770d4302,"_default": _6f6c098b }
 
 export default {
-  head: {"title":"astorun","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Astorun - your online shop"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fuse.fontawesome.com\u002Freleases\u002Fv5.5.0\u002Fcss\u002Fall.css","integrity":"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU","crossorigin":"anonymous"}],"style":[],"script":[]},
+  head: {"title":"astorun","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Astorun - your online shop"},{"name":"msapplication-TileColor","content":"#da532c"},{"name":"theme-color","content":"#ffffff"}],"link":[{"rel":"stylesheet","href":"https:\u002F\u002Fuse.fontawesome.com\u002Freleases\u002Fv5.5.0\u002Fcss\u002Fall.css","integrity":"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU","crossorigin":"anonymous"},{"rel":"apple-touch-icon","sizes":"180x180","href":"\u002Ffavicon\u002Fapple-touch-icon.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"32x32","href":"\u002Ffavicon\u002Ffavicon-32x32.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"16x16","href":"\u002Ffavicon\u002Ffavicon-16x16.png"},{"rel":"manifest","href":"\u002Ffavicon\u002Fsite.webmanifest"},{"rel":"mask-icon","href":"\u002Ffavicon\u002Fsafari-pinned-tab.svg","color":"#5bbad5"}],"style":[],"script":[]},
 
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })

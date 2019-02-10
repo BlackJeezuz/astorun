@@ -19,7 +19,7 @@
               class="newsitem-nav__link main-link newsitem-nav__link--prev"
             >
               <span class="fas fa-arrow-circle-left" />
-              <span class="mob-hidden">Previous</span>
+              <span class="mob-hidden">{{ $t('news.navigation.prev') }}</span>
             </nuxt-link>
           </li>
           <li class="newsitem-nav__item">
@@ -27,7 +27,7 @@
               :to="`${localePath({ name: 'news' })}/`"
               class="newsitem-nav__link main-link newsitem-nav__link--back"
             >
-              Back<span class="mob-hidden"> to news</span>
+              {{ $t('news.navigation.back') }}<span class="mob-hidden"> {{ $t('news.navigation.to') }}</span>
             </nuxt-link>
           </li>
           <li class="newsitem-nav__item">
@@ -36,7 +36,7 @@
               :to="`${localePath({ name: 'news-id', params: { id: newsData.nextId } })}/`"
               class="newsitem-nav__link main-link newsitem-nav__link--next"
             >
-              <span class="mob-hidden">Next</span>
+              <span class="mob-hidden">{{ $t('news.navigation.next') }}</span>
               <span class="fas fa-arrow-circle-right" />
             </nuxt-link>
           </li>

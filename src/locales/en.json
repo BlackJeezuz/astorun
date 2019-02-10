@@ -5,10 +5,62 @@
     "contacts": "Contacts",
     "mainpage": "Main page",
     "tomain": "To main page",
-    "news": "news"
+    "news": "News",
+    "offer": "Offer",
+    "rules": "Rules",
+    "partner": "Partnership",
+    "faq": "FAQ"
   },
   "shop": {
     "title": "Out goods"
+  },
+  "news": {
+    "title": "News",
+    "load": "Load news",
+    "more": "more",
+    "placehoder": "No news, sorry...",
+    "navigation": {
+      "next": "Next",
+      "prev": "Previous",
+      "back": "Back",
+      "to": "to news"
+    }
+  },
+  "collection": {
+    "title": "Collection",
+    "tobascet": "To bascet"
+  },
+  "contacts": {
+    "title": "Our contacts",
+    "mail": "Mail",
+    "phone": "Phone",
+    "telegram": "Telegram",
+    "viber": "Viber",
+    "messanger": "Facebook Messanger"
+  },
+  "product": {
+    "buy": "Buy",
+    "navigation": {
+      "next": "Next",
+      "prev": "Previous",
+      "back": "Back"
+    },
+    "tobascet": "To bascet"
+  },
+  "bascet": {
+    "title": "Your goods",
+    "size": "Size",
+    "price": "Price",
+    "quant": "Quantity",
+    "total": "Total",
+    "placeholder": "In your bascet no goods yet...",
+    "toshop": "To shop",
+    "tocollection": "To collection",
+    "livecontacts": "Live your contacts"
+  },
+  "thanks": {
+    "thanks": "Thank you for your buying!",
+    "more": "Need something else?"
   },
   "buttons": {
     "description": "description",
@@ -20,29 +72,24 @@
     "back": "Back",
     "submit": "Submit"
   },
-  "collection": {
-    "title": "Collection",
-    "man": "Man",
-    "woman": "Woman",
-    "kids": "Kids",
-    "clickInfo": "Click to view info"
-  },
   "placeholders": {
     "mail": "Input your mail",
     "phone": "Input your phone",
     "message": "Input your message",
     "name": "Input your name"
   },
-  "contacts": {
-    "title": "Our contacts",
-    "mail": "Mail",
-    "phone": "Phone",
-    "telegram": "Telegram",
-    "adress": "Adress",
-    "place": "Ukraine, Bila Tserkva, Nekrasova 12a"
+  "filters": {
+    "hat": "Hats",
+    "sweetshot": "Sweetshots",
+    "pants": "Pants"
   },
-  "thanks": {
-    "thanks": "Thank you for your buying!",
-    "more": "Need something else?"
+  "categories": {
+    "man": "Man",
+    "woman": "Woman",
+    "kids": "Kids"
+  },
+  "form": {
+    "iagree": "I agree with",
+    "agreement": "data processing rules"
   }
 }

@@ -4,8 +4,8 @@
       class="checkbox__input"
       type="checkbox"
       :id="id"
-      :checked="checked"
-      @click.prevent="$emit('onClick', checked)"
+      :value="checked"
+      @change="$emit('onClick', checked)"
     >
     <label class="checkbox__label" :for="id">
       <slot />
@@ -16,6 +16,10 @@
 <script>
 export default {
   name: 'Checkbox',
+  model: {
+    prop: 'checked',
+    event: 'onClick'
+  },
   props: {
     id: {
       type: String,

@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="container">
-      <h1 class="main-title">Ваши товары</h1>
+      <h1 class="main-title">{{ $t('bascet.title') }}</h1>
       <template v-if="bascet.length">
         <div class="bascet">
           <ul class="bascet__list">
@@ -15,17 +15,17 @@
                 <div class="bascet-details">
                   <h2 class="bascet-details__title">{{ product.description.title }}</h2>
                   <div class="bascet-details__field">
-                    Size:
+                    {{ $t('bascet.size') }}:
                     <span class="bascet-details__caption">{{ product.activeSize }}</span>
                   </div>
                   <div class="bascet-details__field">
-                    Price:
+                    {{ $t('bascet.price') }}:
                     <span
                       class="bascet-details__caption"
                     >{{ product.price*product.quantity }}$</span>
                   </div>
                   <div class="bascet-details__field bascet-quantity">
-                    <label :for="product.id" class="bascet-quantity__label">Quantity:</label>
+                    <label :for="product.id" class="bascet-quantity__label">{{ $t('bascet.quant') }}:</label>
                     <button class="bascet-quantity__btn" @click="handleQuantity(product)">
                       <span class="fas fa-chevron-left"/>
                     </button>
@@ -50,43 +50,27 @@
             </li>
           </ul>
           <div class="bascet-total">
-            <span class="bascet-total__caption">Total:</span>
+            <span class="bascet-total__caption">{{ $t('bascet.total') }}:</span>
             <span class="bascet-total__sum">{{ totalSum }}$</span>
           </div>
         </div>
-        <main-form @submit="submitHandler"/>
+        <MainForm @submit="submitHandler" :checkbox="true" :title="$t('bascet.livecontacts')" />
       </template>
       <div v-else class="bascet-fallback">
-        <h2 class="bascet-fallback__title">В вашей корзине пока нет товаров!</h2>
+        <h2 class="bascet-fallback__title">{{ $t('bascet.placeholder') }}</h2>
         <div class="bascet-fallback__buttons">
           <nuxt-link class="btn-main btn-main--danger" :to="`${localePath('shop')}/`">
-            В магазин
+            {{ $t('bascet.toshop') }}
             <span class="fas fa-chevron-right"/>
           </nuxt-link>
           <nuxt-link class="btn-main btn-main--danger" :to="`${localePath('collection')}/`">
-            Коллекции
+            {{ $t('bascet.tocellection') }}
             <span class="fas fa-chevron-right"/>
           </nuxt-link>
         </div>
       </div>
-      <ul class="social-list">
-        <li class="social-list__item">
-          <a href="#" class="social-list__link">
-            <span class="fab fa-facebook-square"/>
-          </a>
-        </li>
-        <li class="social-list__item">
-          <a href="#" class="social-list__link">
-            <span class="fab fa-instagram"/>
-          </a>
-        </li>
-        <li class="social-list__item">
-          <a href="#" class="social-list__link">
-            <span class="fab fa-youtube"/>
-          </a>
-        </li>
-      </ul>
     </div>
+    <SocialList />
     <ModalConfirm :removeId="removeId" @close="removeId = null"/>
   </section>
 </template>
@@ -95,13 +79,15 @@
 import MainForm from "~/components/MainForm";
 import { mapGetters, mapActions } from "vuex";
 import ModalConfirm from "~/components/Modal/ModalConfirm";
+import SocialList from '~/components/SocialList'
 
 export default {
   name: "Bascet",
   layout: "aside",
   components: {
     MainForm,
-    ModalConfirm
+    ModalConfirm,
+    SocialList
   },
   data() {
     return {

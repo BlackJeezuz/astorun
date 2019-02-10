@@ -8,6 +8,9 @@
   box-shadow: 0 1px 20px rgba(#000, .5);
   z-index: 5;
   transition: transform .3s ease-in-out;
+  .btn-local {
+    font-style: normal;
+  }
   &.is-hidden {
     transform: translateY(-100%);
   }

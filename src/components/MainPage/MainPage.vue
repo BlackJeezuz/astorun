@@ -5,13 +5,13 @@
         <img class="logo-link__img" src="~assets/images/logo.png" alt="logo">
       </nuxt-link>
       <nav class="main-nav">
-        <nuxt-link :to="localePath('shop')" class="main-nav__link">{{ $t('links.shop') }}</nuxt-link>
-        <nuxt-link :to="localePath('news')" class="main-nav__link">{{ $t('links.news') }}</nuxt-link>
+        <nuxt-link :to="`${localePath('shop')}/`" class="main-nav__link">{{ $t('links.shop') }}</nuxt-link>
+        <nuxt-link :to="`${localePath('news')}/`" class="main-nav__link">{{ $t('links.news') }}</nuxt-link>
         <nuxt-link
-          :to="localePath('collection')"
+          :to="`${localePath('collection')}/`"
           class="main-nav__link"
         >{{ $t('links.collection') }}</nuxt-link>
-        <nuxt-link :to="localePath('contacts')" class="main-nav__link">{{ $t('links.contacts') }}</nuxt-link>
+        <nuxt-link :to="`${localePath('contacts')}/`" class="main-nav__link">{{ $t('links.contacts') }}</nuxt-link>
       </nav>
       <div class="main__langs btn-group">
         <nuxt-link

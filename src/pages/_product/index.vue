@@ -19,12 +19,12 @@
           <Dropdown class="product__dropdown" :options="dropOptions" optionTypes="buttons">
             <span slot="icon" class="dropdown__icon fas fa-chevron-down"/>
           </Dropdown>
-          <button v-if="!isProductInBascet" @click="handleBuy" class="product__btn">Купить</button>
+          <button v-if="!isProductInBascet" @click="handleBuy" class="product__btn">{{ $t('product.buy') }}</button>
           <nuxt-link
             v-else
             :to="`${localePath({ name: 'bascet' })}/`"
             class="product__btn product__btn--success"
-          >В корзину</nuxt-link>
+          >{{ $t('product.tobascet') }}</nuxt-link>
         </div>
       </div>
       <div class="product__container">
@@ -35,7 +35,7 @@
             :to="`${localePath({ name: 'product', params: { product: `${product.nextProduct.id}-${product.nextProduct.category}` }})}/`"
             class="product-nav__link product-nav__link--next"
           >
-            <span>Next {{ product.filter }}</span>
+            <span>{{ $t('product.navigation.next') }}</span>
             <span class="product-nav__icon fas fa-arrow-circle-right"/>
           </nuxt-link>
           <nuxt-link
@@ -44,9 +44,9 @@
             class="product-nav__link product-nav__link--prev"
           >
             <span class="product-nav__icon fas fa-arrow-circle-left"/>
-            <span>Prev {{ product.filter }}</span>
+            <span>{{ $t('product.navigation.prev') }} {{ product.filter }}</span>
           </nuxt-link>
-          <button @click="$router.back()" class="btn-default product-nav__link">Back</button>
+          <button @click="$router.back()" class="btn-default product-nav__link">{{ $t('product.navigation.back') }}</button>
         </nav>
       </div>
     </div>

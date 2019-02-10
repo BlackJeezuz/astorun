@@ -1,7 +1,7 @@
 <template>
   <section class="section news">
     <div class="container">
-      <h1 class="main-title">News</h1>
+      <h1 class="main-title">{{ $t("news.title") }}</h1>
       <template v-if="news.length">
         <transition-group class="news__list" name="fade-down" tag="ul">
           <li class="news__item" v-for="newsitem in news" :key="newsitem.id">
@@ -12,13 +12,13 @@
                 <time :datetime="newsitem.time" class="news__time">{{ newsitem.time }}</time>
               </div>
               <main class="news__content" v-html="newsitem.intro" />
-              <nuxt-link class="news__link main-link" :to="`${localePath({ name: 'news-id', params: { id: newsitem.id } })}/`" >more</nuxt-link>
+              <nuxt-link class="news__link main-link" :to="`${localePath({ name: 'news-id', params: { id: newsitem.id } })}/`" >{{ $t('news.more') }}</nuxt-link>
             </article>
           </li>
         </transition-group>
       </template>
-      <div v-else>No news, sorry...</div>
-      <button @click="loadNews(1)" type="button" class="btn-main news__load">Load news</button>
+      <div v-else>{{ $t('news.placeholder') }}</div>
+      <button @click="loadNews(1)" type="button" class="btn-main news__load">{{ $t('news.load') }}</button>
     </div>
   </section>
 </template>

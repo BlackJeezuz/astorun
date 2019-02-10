@@ -34,9 +34,7 @@
           v-if="bascetLength"
           :to="`${localePath({ name: 'bascet' })}/`"
           class="btn-main btn-main--danger"
-        >
-          В корзину
-        </nuxt-link>
+        >{{ $t('collection.tobascet') }}</nuxt-link>
       </div>
     </div>
     <ModalConfirm
