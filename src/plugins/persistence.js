@@ -1,7 +1,12 @@
 export default function ({ app }) {
   if (process.browser) {
+    window.onNuxtReady(({ $store }) => {
+      let bascet = app.$storage.getLocalStorage('bascet')
+      if (bascet) $store.dispatch('setBascet', bascet)
+    })
+    
     window.addEventListener('beforeunload', () => {
-      app.$storage.setCookie('bascet', app.store.state.bascet.bascet)
+      app.$storage.setLocalStorage('bascet', app.store.state.bascet.bascet)
     })
   }
 }

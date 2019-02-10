@@ -24,12 +24,8 @@ const mutations = {
 const actions = {
   removeProduct: ({ commit }, id) => commit('REMOVE_PRODUCT', id),
   addProduct: ({ commit }, product) => commit('ADD_PRODUCT', product),
-  nuxtServerInit ({ commit }, { app }) {
-    let bascet = app.$storage.getCookie('bascet')
-
-    if (bascet) {
-      commit('SET_BASCET', bascet)
-    }
+  setBascet ({ commit }, bascet) {
+    commit('SET_BASCET', bascet)
   }
 }
 
