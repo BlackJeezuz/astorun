@@ -28,7 +28,7 @@
   },
   "collection": {
     "title": "Коллекции",
-    "tobascet": "В корзину"
+    "tobasket": "В корзину"
   },
   "contacts": {
     "title": "Наши контакты",
@@ -45,9 +45,9 @@
       "prev": "Предыдущая",
       "back": "Назад"
     },
-    "tobascet": "В корзину"
+    "tobasket": "В корзину"
   },
-  "bascet": {
+  "basket": {
     "title": "Ваши товары",
     "size": "Размер",
     "price": "Цена",

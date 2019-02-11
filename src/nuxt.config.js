@@ -31,10 +31,6 @@ module.exports = {
     ]
   },
   loading: { color: '#fff' },
-  css: [
-  ],
-  plugins: [
-  ],
   build: {
     extend(config, ctx) {
       // Run ESLint on save
@@ -59,7 +55,6 @@ module.exports = {
         ...news.map(item => `news/${item.id}`)
       ]
     }
-    // routes: ['news/awesome-product-is-comming', 'news/awesome-product-2']
   },
   modules: [
     '@nuxtjs/axios',

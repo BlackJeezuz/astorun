@@ -1,8 +1,8 @@
 import news from '~/static/placeholders/news.json'
 
-const state = {
+const state = () => ({
   news: []
-}
+})
 
 const getters = {
   getNews: state => (from, to) => {

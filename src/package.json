@@ -20,7 +20,8 @@
     "nuxt-i18n": "^5.4.4",
     "nuxt-universal-storage": "^0.1.4",
     "vee-validate": "^2.1.5",
-    "vue-carousel": "^0.17.0"
+    "vue-carousel": "^0.17.0",
+    "vuex-persist": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

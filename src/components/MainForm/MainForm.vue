@@ -91,7 +91,7 @@ export default {
           isValid: false
         }
       },
-      agree: false
+      agree: true
     }
   },
   computed: {

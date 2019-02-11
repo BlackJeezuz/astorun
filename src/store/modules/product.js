@@ -5,7 +5,7 @@ import pants from '~/static/placeholders/pants.json'
 import sweetshot from '~/static/placeholders/sweetshot.json'
 import collections from '~/static/placeholders/collections.json'
 
-const state = {
+const state = () => ({
   filters: [],
   categories: [],
   products: [],
@@ -15,7 +15,7 @@ const state = {
     shop: null,
     collection: null
   }
-}
+})
 
 const getters = {
   getProductsByfilter: state => (filter) => {

@@ -4,8 +4,8 @@
       class="checkbox__input"
       type="checkbox"
       :id="id"
-      :value="checked"
-      @change="$emit('onClick', checked)"
+      :checked="checked"
+      @change="$emit('change', $event.target.checked)"
     >
     <label class="checkbox__label" :for="id">
       <slot />
@@ -18,7 +18,7 @@ export default {
   name: 'Checkbox',
   model: {
     prop: 'checked',
-    event: 'onClick'
+    event: 'change'
   },
   props: {
     id: {

@@ -1,12 +1,12 @@
 export default function ({ app }) {
   if (process.browser) {
     window.onNuxtReady(({ $store }) => {
-      let bascet = app.$storage.getLocalStorage('bascet')
-      if (bascet) $store.dispatch('setBascet', bascet)
+      let basket = app.$storage.getLocalStorage('basket')
+      if (basket) $store.dispatch('setbasket', basket)
     })
     
     window.addEventListener('beforeunload', () => {
-      app.$storage.setLocalStorage('bascet', app.store.state.bascet.bascet)
+      app.$storage.setLocalStorage('basket', app.store.state.basket.basket)
     })
   }
 }

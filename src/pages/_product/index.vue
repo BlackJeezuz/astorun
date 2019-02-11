@@ -19,12 +19,12 @@
           <Dropdown class="product__dropdown" :options="dropOptions" optionTypes="buttons">
             <span slot="icon" class="dropdown__icon fas fa-chevron-down"/>
           </Dropdown>
-          <button v-if="!isProductInBascet" @click="handleBuy" class="product__btn">{{ $t('product.buy') }}</button>
+          <button v-if="!isProductInbasket" @click="handleBuy" class="product__btn">{{ $t('product.buy') }}</button>
           <nuxt-link
             v-else
-            :to="`${localePath({ name: 'bascet' })}/`"
+            :to="`${localePath({ name: 'basket' })}/`"
             class="product__btn product__btn--success"
-          >{{ $t('product.tobascet') }}</nuxt-link>
+          >{{ $t('product.tobasket') }}</nuxt-link>
         </div>
       </div>
       <div class="product__container">
@@ -72,7 +72,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getProductByID", "getProductFromBascet"]),
+    ...mapGetters(["getProductByID", "getProductFromBasket"]),
     dropOptions() {
       return this.product.sizes.map(size => {
         return {
@@ -81,8 +81,8 @@ export default {
         };
       });
     },
-    isProductInBascet() {
-      return this.getProductFromBascet(this.product.id);
+    isProductInbasket() {
+      return this.getProductFromBasket(this.product.id);
     }
   },
   created() {

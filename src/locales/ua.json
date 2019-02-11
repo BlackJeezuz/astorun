@@ -28,7 +28,7 @@
   },
   "collection": {
     "title": "Колекції",
-    "tobascet": "До кошику"
+    "tobasket": "До кошику"
   },
   "contacts": {
     "title": "Наші контакти",
@@ -45,9 +45,9 @@
       "prev": "Попередня",
       "back": "Назад"
     },
-    "tobascet": "До кошику"
+    "tobasket": "До кошику"
   },
-  "bascet": {
+  "basket": {
     "title": "Ваші товари",
     "size": "Розмір",
     "price": "Ціна",

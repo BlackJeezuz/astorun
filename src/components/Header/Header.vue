@@ -45,14 +45,14 @@
         </div>
       </div>
 
-      <nuxt-link class="header-bascet" :to="`${localePath('bascet')}/`" title="В корзину">
-        <span class="header-bascet__icon fas fa-shopping-cart"/>
+      <nuxt-link class="header-basket" :to="`${localePath('basket')}/`" title="В корзину">
+        <span class="header-basket__icon fas fa-shopping-cart"/>
         <transition name="bounce">
           <span
-            :key="`numb-${bascetLength}`"
-            class="header-bascet__number"
-            v-if="bascetLength"
-          >{{ bascetLength }}</span>
+            :key="`numb-${basketLength}`"
+            class="header-basket__number"
+            v-if="basketLength"
+          >{{ basketLength }}</span>
         </transition>
       </nuxt-link>
     </div>
@@ -71,7 +71,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["bascetLength"]),
+    ...mapGetters(["basketLength"]),
     navigation() {
       return [
         {
@@ -97,6 +97,7 @@ export default {
     isMenuActive(isMenuActive) {
       if (isMenuActive) {
         document.querySelector('body').classList.add("scroll-disable");
+        document.querySelector('html').classList.add("scroll-disable");
       } else {
         this.removeScrollDisable()
       }
@@ -125,6 +126,7 @@ export default {
     },
     removeScrollDisable () {
       document.querySelector('body').classList.remove('scroll-disable')
+      document.querySelector('html').classList.remove('scroll-disable')
     },
     hideHeader() {
       if (document.querySelector('body').getBoundingClientRect().top > this.scrollPos)

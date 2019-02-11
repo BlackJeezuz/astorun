@@ -11,7 +11,7 @@
           <Checkbox
             class="collection__checkbox"
             :id="`check-${product.id}`"
-            :checked="getProductFromBascet(product.id) ? true : false"
+            :checked="getProductFromBasket(product.id) ? true : false"
             @onClick="handleCheck($event, product)"
           />
           <nuxt-link :to="`${localePath({
@@ -31,10 +31,10 @@
         </div>
 
         <nuxt-link
-          v-if="bascetLength"
-          :to="`${localePath({ name: 'bascet' })}/`"
+          v-if="basketLength"
+          :to="`${localePath({ name: 'basket' })}/`"
           class="btn-main btn-main--danger"
-        >{{ $t('collection.tobascet') }}</nuxt-link>
+        >{{ $t('collection.tobasket') }}</nuxt-link>
       </div>
     </div>
     <ModalConfirm
@@ -67,16 +67,14 @@ export default {
   computed: {
     ...mapGetters([
       'getCollection',
-      'getProductFromBascet',
-      'bascetLength'
+      'getProductFromBasket',
+      'basketLength'
     ]),
     products () {
       return this.collection.products || []
     }
   },
-  created () {
-    console.log(this.bascetLength)
-    
+  created () { 
     let routesData = this.$route.params.product.split('-')
 
     let category = routesData[routesData.length - 1]

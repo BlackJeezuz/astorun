@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _0eef5412 = () => interopDefault(import('..\\pages\\bascet\\index.vue' /* webpackChunkName: "pages_bascet_index" */))
+const _0776a2ef = () => interopDefault(import('..\\pages\\basket\\index.vue' /* webpackChunkName: "pages_basket_index" */))
 const _2b780cd2 = () => interopDefault(import('..\\pages\\collection\\index.vue' /* webpackChunkName: "pages_collection_index" */))
 const _c38fc8fc = () => interopDefault(import('..\\pages\\contacts\\index.vue' /* webpackChunkName: "pages_contacts_index" */))
 const _b6aaaf2e = () => interopDefault(import('..\\pages\\faq\\index.vue' /* webpackChunkName: "pages_faq_index" */))
@@ -76,17 +76,17 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
-      path: "/bascet",
-      component: _0eef5412,
-      name: "bascet___ru"
+      path: "/basket",
+      component: _0776a2ef,
+      name: "basket___ru"
     }, {
-      path: "/en/bascet",
-      component: _0eef5412,
-      name: "bascet___en"
+      path: "/en/basket",
+      component: _0776a2ef,
+      name: "basket___en"
     }, {
-      path: "/ua/bascet",
-      component: _0eef5412,
-      name: "bascet___ua"
+      path: "/ua/basket",
+      component: _0776a2ef,
+      name: "basket___ua"
     }, {
       path: "/collection",
       component: _2b780cd2,
